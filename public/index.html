@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aetheria | AI Marketing Automation Operating System</title>
+  <meta name="description"
+    content="Production Multi-Tenant AI Marketing Automation SaaS. Turn goals into strategies, SEO, content, and deterministic workflows.">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .glass {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card {
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .gradient-border {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.4), rgba(20, 184, 166, 0.1), rgba(59, 130, 246, 0.4));
+    }
+
+    @keyframes pulse-slow {
+
+      0%,
+      100% {
+        opacity: 0.2;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.35;
+        transform: scale(1.08);
+      }
+    }
+
+    .animate-orb {
+      animation: pulse-slow 8s infinite ease-in-out;
+    }
+  </style>
+</head>
+
+<body
+  class="min-h-full flex flex-col bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden">
+
+  <!-- Ambient Background Lighting -->
+  <div
+    class="fixed top-0 left-1/4 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-orb">
+  </div>
+  <div
+    class="fixed bottom-0 right-1/4 w-[700px] h-[700px] bg-teal-500/10 rounded-full blur-3xl pointer-events-none animate-orb"
+    style="animation-delay: -4s;"></div>
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-40 glass border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div
+          class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-teal-400 to-blue-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-cyan-500/25">
+          ⚡
+        </div>
+        <div>
+          <span class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+            AETHERIA <span
+              class="text-xs px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-semibold border border-cyan-500/30">AI
+              MARKETING OS</span>
+          </span>
+          <span id="header-brand-subtitle" class="text-xs text-slate-400 block">Engligenious • Android Mobile App (Global)</span>
+        </div>
+      </div>
+
+      <!-- Right Controls -->
+      <div class="flex items-center gap-3">
+        <!-- Model Routing Indicator -->
+        <div id="model-status-badge"
+          class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card text-xs font-medium text-emerald-400 border border-emerald-500/30">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Local Ollama (llama3.1) • $0.00 Free</span>
+        </div>
+
+        <!-- Product & Connected Channels Setup Button -->
+        <button id="open-channels-btn" onclick="openChannelsModal()"
+          class="relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition">
+          <span>⚙️ Product & Channels</span>
+          <span id="connected-channels-badge"
+            class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold border border-emerald-500/40">4 Connected</span>
+        </button>
+
+        <!-- Approvals Counter Button -->
+        <button id="open-approvals-btn"
+          class="relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition">
+          <span>🔔 Approvals</span>
+          <span id="approval-counter-badge"
+            class="px-2 py-0.5 rounded-full bg-amber-500 text-slate-950 font-extrabold text-[10px]">1</span>
+        </button>
+
+        <!-- Live Landing Page Demo Link -->
+        <a href="/landing/ai-powered-english-learning-global.html" target="_blank"
+          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-300 hover:to-teal-300 shadow-md shadow-cyan-500/20 transition transform hover:-translate-y-0.5">
+          <span>View Live Landing Page</span> ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10 relative z-10">
+
+    <!-- Hero Command Center Section -->
+    <section class="text-center max-w-4xl mx-auto pt-4 pb-2">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-slate-300 text-xs font-semibold mb-6 shadow-inner">
+        <span class="text-cyan-400">● LangGraph Multi-Agent Engine</span> • Autonomous SEO, Content, Ads & Workflows
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+        Command your marketing in <span
+          class="bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-400 bg-clip-text text-transparent">natural
+          language</span>.
+      </h1>
+      <p class="mt-4 text-slate-400 text-base max-w-2xl mx-auto">
+        Describe your business objective. Aetheria retrieves your brand knowledge, orchestrates specialized agents, and
+        builds an executable marketing strategy in seconds.
+      </p>
+
+      <!-- Search Command Input Box -->
+      <div class="mt-8 p-2 rounded-3xl glass gradient-border shadow-2xl shadow-cyan-950/40">
+        <div
+          class="flex flex-col sm:flex-row items-center gap-2 bg-slate-900/90 rounded-2xl p-2 border border-slate-800">
+          <div class="pl-3 text-cyan-400 text-lg hidden sm:block">✦</div>
+          <input id="user-goal-input" type="text"
+            value="I want to attract 50 dental implant patients over the next 30 days in New York with a focus on Manhattan and Brooklyn."
+            placeholder="e.g. I want to launch an implant campaign in New York with 50 appointments in 30 days..."
+            class="w-full bg-transparent px-3 py-3 text-sm text-white placeholder-slate-500 focus:outline-none" />
+          <button id="generate-plan-btn"
+            class="w-full sm:w-auto shrink-0 px-6 py-3.5 rounded-xl font-bold text-sm text-slate-950 bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-400 hover:opacity-95 transition shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2">
+            <span id="btn-spinner" class="hidden animate-spin">⟳</span>
+            <span id="btn-text">Create Marketing Plan</span> →
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick-Start Preset Prompts -->
+      <div class="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-400">
+        <span class="text-slate-500">Quick Start:</span>
+        <button onclick="setPrompt(this.innerText)"
+          class="px-3 py-1 rounded-lg glass-card hover:border-cyan-500/40 hover:text-white transition">
+          Dental Implant 30-Day Growth
+        </button>
+        <button onclick="setPrompt(this.innerText)"
+          class="px-3 py-1 rounded-lg glass-card hover:border-cyan-500/40 hover:text-white transition">
+          Engligenious Android App Growth
+        </button>
+        <button onclick="setPrompt(this.innerText)"
+          class="px-3 py-1 rounded-lg glass-card hover:border-cyan-500/40 hover:text-white transition">
+          Clear Aligner pSEO Blitz
+        </button>
+        <button onclick="setPrompt(this.innerText)"
+          class="px-3 py-1 rounded-lg glass-card hover:border-cyan-500/40 hover:text-white transition">
+          Google Reviews Reputation Booster
+        </button>
+      </div>
+    </section>
+
+    <!-- Floating Toast Notification -->
+    <div id="plan-toast" class="hidden fixed top-20 right-6 z-50 p-4 rounded-2xl glass border border-emerald-500/40 bg-slate-950/90 shadow-2xl shadow-emerald-950/50 flex items-center gap-3 transition transform duration-300">
+      <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg">✓</div>
+      <div>
+        <div id="toast-title" class="font-bold text-sm text-white">Marketing Plan Generated!</div>
+        <div id="toast-subtitle" class="text-xs text-emerald-400">All 5 strategic domains synthesized.</div>
+      </div>
+    </div>
+
+    <!-- Agent Execution Pipeline Status Stepper -->
+    <div id="execution-stepper" class="glass rounded-2xl p-6 border border-slate-800 transition">
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center justify-between">
+        <span class="flex items-center gap-2">
+          <span id="pipeline-pulsing-dot" class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span> Multi-Agent Pipeline Status
+        </span>
+        <span id="pipeline-status-text" class="text-cyan-400 font-mono text-xs font-bold">Plan Ready (Status: DRAFT)</span>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-6 gap-3 text-center text-xs">
+        <div id="step-node-1" class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 font-semibold transition">
+          <div id="step-icon-1" class="text-base mb-1">1</div>
+          <span>1. Intent & RAG</span>
+        </div>
+        <div id="step-node-2" class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 font-semibold transition">
+          <div id="step-icon-2" class="text-base mb-1">2</div>
+          <span>2. Strategist Agent</span>
+        </div>
+        <div id="step-node-3" class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 font-semibold transition">
+          <div id="step-icon-3" class="text-base mb-1">3</div>
+          <span>3. SEO & pSEO</span>
+        </div>
+        <div id="step-node-4" class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 font-semibold transition">
+          <div id="step-icon-4" class="text-base mb-1">4</div>
+          <span>4. Creative Content</span>
+        </div>
+        <div id="step-node-5" class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 font-semibold transition">
+          <div id="step-icon-5" class="text-base mb-1">5</div>
+          <span>5. Ads & Drip</span>
+        </div>
+        <div id="step-node-6" class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 font-semibold transition">
+          <div id="step-icon-6" class="text-base mb-1">6</div>
+          <span>6. Competitor Radar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Marketing Plan Inspector -->
+    <section class="space-y-6">
+
+      <!-- Autonomous Campaign Operations Bar -->
+      <div class="glass-card rounded-2xl p-5 border border-cyan-500/30 bg-gradient-to-r from-cyan-950/40 via-slate-900/80 to-teal-950/40 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+            <span class="text-xs font-bold uppercase tracking-wider text-cyan-300">Autonomous Execution Engine Ready</span>
+          </div>
+          <p class="text-xs text-slate-300">
+            Automate all marketing operations: Generate live pSEO landing pages, enqueue 30-day email nurture sequence into background queue, publish social broadcasts, and render visual ad banners.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 shrink-0 flex-wrap">
+          <button onclick="switchToReelSimulator()" class="px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-teal-500 to-cyan-500 hover:opacity-95 shadow-md shadow-teal-500/25 transition flex items-center gap-2">
+            <span>🎬 Watch Generated Video Short</span> ↗
+          </button>
+          <button id="deploy-all-btn" onclick="deployFullCampaignAutomation()" class="px-5 py-2.5 rounded-xl text-xs font-extrabold text-slate-950 bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 hover:opacity-95 shadow-lg shadow-cyan-500/20 transition flex items-center gap-2">
+            <span id="deploy-spinner" class="hidden w-3.5 h-3.5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span>
+            <span id="deploy-btn-text">⚡ Auto-Deploy Omnichannel Campaign</span>
+          </button>
+          <button onclick="downloadPlanBundle()" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-300 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-800 transition">
+            📥 Export Bundle
+          </button>
+        </div>
+      </div>
+
+      <!-- Tabs Navigation -->
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-2 overflow-x-auto">
+        <button onclick="switchTab('strategy')" id="tab-btn-strategy"
+          class="px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-cyan-400 bg-slate-900 border border-cyan-500/30 transition flex items-center gap-2">
+          <span>🎯</span> Strategy & KPIs
+        </button>
+        <button onclick="switchTab('seo')" id="tab-btn-seo"
+          class="px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-900/60 transition flex items-center gap-2">
+          <span>🔍</span> SEO & Programmatic SEO
+        </button>
+        <button onclick="switchTab('content')" id="tab-btn-content"
+          class="px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-900/60 transition flex items-center gap-2">
+          <span>🎬</span> Short Video & Social <span class="px-1.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-mono text-[10px] font-bold border border-cyan-500/30">Ready</span>
+        </button>
+        <button onclick="switchTab('campaign')" id="tab-btn-campaign"
+          class="px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-900/60 transition flex items-center gap-2">
+          <span>📣</span> Ads & Email Sequence
+        </button>
+        <button onclick="switchTab('competitor')" id="tab-btn-competitor"
+          class="px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-900/60 transition flex items-center gap-2">
+          <span>🛡️</span> Competitor Radar
+        </button>
+      </div>
+
+      <!-- Tab Content 1: Strategy & KPIs -->
+      <div id="tab-strategy" class="tab-panel space-y-6">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="md:col-span-2 glass-card rounded-2xl p-6 border border-slate-800">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">Campaign Positioning</h3>
+            <div id="strat-campaign-name" class="text-xl font-extrabold text-white">Loading Campaign Strategy...</div>
+            <p id="strat-value-prop" class="text-sm text-slate-300 mt-3 leading-relaxed">
+              Synthesizing core value proposition and market differentiation...
+            </p>
+
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mt-6 mb-3">Target Personas</h4>
+            <div id="strat-personas-container" class="space-y-3">
+              <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800 text-xs text-slate-400">
+                Enter your business goal and click "Create Marketing Plan" to dynamically generate personas.
+              </div>
+            </div>
+          </div>
+
+          <!-- Budget & KPIs Card -->
+          <div class="glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xs font-bold uppercase tracking-wider text-teal-400 mb-4">Budget Allocation</h3>
+              <div id="strat-budget-container" class="space-y-3 text-xs">
+                <!-- Dynamically rendered budget bars -->
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-800 text-xs space-y-2">
+              <div class="text-slate-400 font-bold uppercase text-[10px]">Target KPIs</div>
+              <div id="strat-kpis-container" class="space-y-2">
+                <!-- Dynamically rendered KPIs -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 2: SEO & Programmatic SEO -->
+      <div id="tab-seo" class="tab-panel hidden space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="glass-card rounded-2xl p-6 border border-slate-800">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-3">High-Intent Keyword Clusters</h3>
+            <div id="seo-clusters-container" class="space-y-4 text-xs">
+              <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800 text-xs text-slate-400">
+                Keyword clusters will be synthesized here.
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-6 border border-slate-800">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-teal-400 mb-3">Programmatic SEO (pSEO) Matrix</h3>
+            <p class="text-xs text-slate-400 mb-4">Auto-synthesizes localized landing pages combining services with XML sitemap.</p>
+            <div id="seo-matrix-container" class="space-y-2 text-xs font-mono">
+              <!-- Dynamically rendered landing pages -->
+            </div>
+            <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+              <span id="seo-pages-count" class="text-slate-400">Generated Landing Pages</span>
+              <a href="/dist/sitemap.xml" target="_blank" class="text-cyan-400 hover:underline">View sitemap.xml ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 3: Content & Social Reels -->
+      <div id="tab-content" class="tab-panel hidden space-y-6">
+        <!-- Interactive 9:16 Smartphone Video Reel & Short Studio -->
+        <div id="video-reel-studio" class="glass-card rounded-3xl p-6 sm:p-8 border border-teal-500/30 bg-gradient-to-b from-slate-900/90 via-slate-950 to-slate-900/90 space-y-6">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-teal-400 animate-pulse"></span>
+                <span class="text-xs font-bold uppercase tracking-wider text-teal-400">9:16 Short-Form Video Reel Studio (TikTok / Reels / Shorts)</span>
+              </div>
+              <h3 id="reel-studio-title" class="text-lg sm:text-xl font-black text-white mt-1">Short-Form Video Production Studio</h3>
+              <p class="text-xs text-slate-400 mt-0.5">30-Second viral short-form script with scene-by-scene visual cues, on-screen text overlays, and spoken audio.</p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <button onclick="openAdvancedVideoModal()" class="px-3.5 py-2 rounded-xl text-xs font-bold text-cyan-300 bg-cyan-950/70 hover:bg-cyan-900 border border-cyan-500/40 shadow-sm transition flex items-center gap-1.5">
+                <span>✨ Advanced Video AI Studio</span>
+              </button>
+              <button onclick="regenerateSection('reel')" id="regen-reel-btn" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-300 hover:text-white bg-slate-900 border border-slate-700 hover:border-slate-600 transition flex items-center gap-1.5">
+                <span id="regen-reel-icon">🔄</span> <span>Regenerate Video</span>
+              </button>
+              <button onclick="playReelSimulation()" id="reel-play-btn" class="px-4 py-2 rounded-xl text-xs font-black text-slate-950 bg-gradient-to-r from-teal-400 to-cyan-400 hover:opacity-95 shadow-md shadow-teal-500/20 transition flex items-center gap-2">
+                <span id="reel-play-icon">▶</span> <span id="reel-play-text">Play 30s Simulation</span>
+              </button>
+              <button onclick="generateAdBannersModal()" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:text-white bg-slate-900 border border-slate-700 transition">
+                🎨 Render Ad Banners
+              </button>
+            </div>
+          </div>
+
+          <div id="content-reel-container">
+            <!-- Dynamically populated with 9:16 Smartphone Simulator + 4-Scene Storyboard Controller -->
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Blog Outline -->
+          <div class="glass-card rounded-2xl p-6 border border-slate-800">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-3">SEO Blog Outline</h3>
+            <div id="content-blog-container" class="space-y-3">
+              <!-- Dynamically rendered blog outline -->
+            </div>
+          </div>
+
+          <!-- Social Posts -->
+          <div class="glass-card rounded-2xl p-6 border border-slate-800">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400">Multi-Platform Social Media Posts</h3>
+              <button onclick="regenerateSection('social')" id="regen-social-btn" class="px-2.5 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white bg-slate-900 border border-slate-700 hover:border-slate-600 transition flex items-center gap-1.5">
+                <span id="regen-social-icon">🔄</span> <span>Regenerate Posts</span>
+              </button>
+            </div>
+            <div id="content-social-container" class="space-y-4 text-xs">
+              <!-- Dynamically rendered social posts -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 4: Ads & Email Drip -->
+      <div id="tab-campaign" class="tab-panel hidden space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Ad Copies Preview -->
+          <div class="glass-card rounded-2xl p-6 border border-slate-800">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400">Omnichannel Ad Copies</h3>
+              <button onclick="regenerateSection('ads')" id="regen-ads-btn" class="px-2.5 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white bg-slate-900 border border-slate-700 hover:border-slate-600 transition flex items-center gap-1.5">
+                <span id="regen-ads-icon">🔄</span> <span>Regenerate Ads</span>
+              </button>
+            </div>
+            <div id="campaign-ad-container" class="space-y-4">
+              <!-- Dynamically rendered ad copies -->
+            </div>
+          </div>
+
+          <!-- Email Nurture Sequence -->
+          <div class="glass-card rounded-2xl p-6 border border-slate-800">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-teal-400">Multi-Touch Nurture Sequence</h3>
+              <button onclick="regenerateSection('emails')" id="regen-emails-btn" class="px-2.5 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white bg-slate-900 border border-slate-700 hover:border-slate-600 transition flex items-center gap-1.5">
+                <span id="regen-emails-icon">🔄</span> <span>Regenerate Emails</span>
+              </button>
+            </div>
+            <div id="campaign-emails-container" class="space-y-3 text-xs">
+              <!-- Dynamically rendered nurture sequence -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 5: Competitor Radar -->
+      <div id="tab-competitor" class="tab-panel hidden space-y-6">
+        <div class="glass-card rounded-2xl p-6 border border-slate-800">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-4">Competitor Radar & Counter-Messaging</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2">Competitor Weaknesses</h4>
+              <ul id="comp-weaknesses-container" class="space-y-2 text-xs text-slate-300">
+                <!-- Dynamically rendered weaknesses -->
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">Our Market Differentiation</h4>
+              <ul id="comp-diff-container" class="space-y-2 text-xs text-slate-300">
+                <!-- Dynamically rendered differentiation -->
+              </ul>
+            </div>
+          </div>
+
+          <div id="comp-hook-container" class="mt-6 pt-4 border-t border-slate-800 p-4 rounded-xl bg-cyan-950/30 border border-cyan-500/20 text-xs">
+            <!-- Dynamically rendered hook -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Human-in-the-Loop Approvals Drawer Modal -->
+  <div id="approvals-modal"
+    class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl relative">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+          <h3 class="text-base font-bold text-white">Pending Human-in-the-Loop Review</h3>
+        </div>
+        <button onclick="closeApprovalsModal()" class="text-slate-400 hover:text-white text-lg">✕</button>
+      </div>
+
+      <div id="approval-ticket-card" class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-white text-sm" id="modal-ticket-title">Launch 30-Day Omnichannel Campaign</span>
+          <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 font-mono text-[10px] font-bold">HIGH
+            RISK</span>
+        </div>
+        <p class="text-slate-400" id="modal-ticket-desc">
+          Approve dispatching 500 patient nurture emails, publishing 4 social posts, and initiating Meta Ads with $1,500
+          budget.
+        </p>
+        <div class="text-[11px] text-slate-500 border-t border-slate-800 pt-2">
+          Channels: Meta Ads • Google Ads • Email Drip • WhatsApp Booking
+        </div>
+      </div>
+
+      <div class="mt-6 flex items-center justify-end gap-3">
+        <button onclick="reviewAction('REJECT')"
+          class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 transition">
+          Reject
+        </button>
+        <button onclick="reviewAction('APPROVE')"
+          class="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-400 hover:opacity-95 shadow-md shadow-emerald-500/20 transition">
+          Approve & Execute Actions →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Profile & Connected Accounts Modal -->
+  <div id="channels-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass max-w-3xl w-full rounded-3xl p-6 sm:p-8 border border-cyan-500/40 shadow-2xl relative max-h-[92vh] overflow-y-auto">
+      <div class="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
+        <div>
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span>⚙️ Product Profile & Channel Integrations</span>
+            <span id="modal-mode-badge" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold">READY TO DEPLOY</span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Define your product company DNA and connect real marketing channels for live autonomous publishing.</p>
+        </div>
+        <button onclick="closeChannelsModal()" class="text-slate-400 hover:text-white text-xl">✕</button>
+      </div>
+
+      <!-- Navigation tabs inside settings modal -->
+      <div class="flex border-b border-slate-800 mb-6 gap-2">
+        <button id="modal-tab-btn-product" onclick="switchSettingsTab('product')" class="px-4 py-2 border-b-2 border-cyan-400 text-cyan-300 text-xs font-bold transition">
+          🏢 1. Product & Company DNA
+        </button>
+        <button id="modal-tab-btn-channels" onclick="switchSettingsTab('channels')" class="px-4 py-2 border-b-2 border-transparent text-slate-400 hover:text-slate-200 text-xs font-semibold transition">
+          🔌 2. Marketing Channels & API Keys
+        </button>
+      </div>
+
+      <!-- Settings Panel 1: Product & Company DNA -->
+      <div id="settings-panel-product" class="space-y-4">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Company / App Name</label>
+            <input id="set-company-name" type="text" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-cyan-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Product Type / Category</label>
+            <select id="set-product-type" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-cyan-500">
+              <option value="Android Mobile App / EdTech">Android Mobile App (Google Play Store)</option>
+              <option value="iOS Mobile App">iOS Mobile App (Apple App Store)</option>
+              <option value="SaaS & Cloud Software">B2B SaaS / Web Application</option>
+              <option value="Healthcare & Dental Studio">Local Healthcare / Dental Clinic</option>
+              <option value="E-Commerce Store">E-Commerce Brand</option>
+              <option value="Professional Consulting">Agency / Consulting Firm</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Google Play Store / App Store URL</label>
+            <input id="set-playstore-url" type="url" placeholder="https://play.google.com/store/apps/details?id=..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-cyan-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Official Website URL</label>
+            <input id="set-website-url" type="url" placeholder="https://yourbrand.com" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-cyan-500">
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Target Audience</label>
+            <input id="set-target-audience" type="text" placeholder="e.g. Non-native English speakers, job seekers, students" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-cyan-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Primary Geographic Region</label>
+            <input id="set-primary-location" type="text" placeholder="e.g. Global (India, LATAM, USA) or Manhattan, NY" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-cyan-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Core Value Proposition & Offer</label>
+          <textarea id="set-value-prop" rows="2" placeholder="What is your unfair advantage or primary hook?" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-cyan-500"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Key Features / USPs (Comma separated)</label>
+          <input id="set-features" type="text" placeholder="10 Mins/Day Micro-Learning, AI Pronunciation Feedback, 100% Offline Mode" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-cyan-500">
+        </div>
+
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between">
+          <button onclick="applyBrandToSearchInput()" class="text-xs text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1">
+            <span>✨ Auto-Fill Search Goal From This Profile</span>
+          </button>
+          <button id="save-brand-btn" onclick="saveBrandProfile()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-400 text-slate-950 font-bold text-xs hover:opacity-95 transition">
+            Save Product Profile
+          </button>
+        </div>
+      </div>
+
+      <!-- Settings Panel 2: Marketing Channels & Credentials -->
+      <div id="settings-panel-channels" class="hidden space-y-4">
+        <!-- Execution Mode Selector -->
+        <div class="p-3.5 rounded-2xl bg-cyan-950/30 border border-cyan-500/30 flex items-center justify-between">
+          <div>
+            <div class="text-xs font-bold text-white">Execution Mode</div>
+            <div class="text-[11px] text-slate-400">Choose between verified Sandbox Simulation or Live Production API dispatch</div>
+          </div>
+          <select id="set-exec-mode" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-cyan-300 font-bold focus:outline-none">
+            <option value="SANDBOX">Sandbox Mode (Safe Previews)</option>
+            <option value="PRODUCTION">Live Production (Actual Publish)</option>
+          </select>
+        </div>
+
+        <!-- Channel Cards Grid -->
+        <div class="space-y-3">
+          <!-- LinkedIn -->
+          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-xs flex items-center gap-2">
+                <span class="text-indigo-400">💼</span> LinkedIn Marketing API
+              </span>
+              <span id="status-badge-linkedin" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono">CONNECTED</span>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2 text-xs">
+              <input id="set-li-urn" type="text" placeholder="Organization URN (e.g. urn:li:organization:12345)" class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200">
+              <div class="flex gap-2">
+                <input id="set-li-token" type="password" placeholder="Access Token (OAuth 2.0)" class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 flex-1">
+                <button onclick="testChannelConnection('linkedin')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-[11px] font-bold hover:bg-slate-700">Test</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Meta / Instagram -->
+          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-xs flex items-center gap-2">
+                <span class="text-rose-400">📸</span> Meta Graph API (Instagram & Facebook)
+              </span>
+              <span id="status-badge-meta" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono">CONNECTED</span>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2 text-xs">
+              <input id="set-meta-igid" type="text" placeholder="Instagram Account ID (e.g. 17841400000000001)" class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200">
+              <div class="flex gap-2">
+                <input id="set-meta-token" type="password" placeholder="Page Access Token" class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 flex-1">
+                <button onclick="testChannelConnection('meta')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-[11px] font-bold hover:bg-slate-700">Test</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email Provider -->
+          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-xs flex items-center gap-2">
+                <span class="text-teal-400">📧</span> Email Drip Provider (Resend / SendGrid / SMTP)
+              </span>
+              <span id="status-badge-email" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono">CONNECTED</span>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-2 text-xs">
+              <select id="set-email-provider" class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200">
+                <option value="RESEND">Resend</option>
+                <option value="SENDGRID">SendGrid</option>
+                <option value="SMTP">Custom SMTP</option>
+              </select>
+              <input id="set-email-from" type="email" placeholder="Sender (e.g. growth@yourbrand.com)" class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200">
+              <div class="flex gap-2">
+                <input id="set-email-key" type="password" placeholder="API Key" class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 flex-1">
+                <button onclick="testChannelConnection('email')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-[11px] font-bold hover:bg-slate-700">Test</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Webhook -->
+          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-xs flex items-center gap-2">
+                <span class="text-amber-400">⚡</span> Live Webhook (Zapier / Make / n8n / CRM / Slack)
+              </span>
+              <span id="status-badge-webhook" class="px-2 py-0.5 rounded bg-slate-700 text-slate-400 text-[10px] font-mono">OPTIONAL</span>
+            </div>
+            <div class="flex gap-2 text-xs">
+              <input id="set-webhook-url" type="url" placeholder="https://hooks.zapier.com/hooks/catch/..." class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 flex-1">
+              <button onclick="testChannelConnection('webhook')" class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-[11px] font-bold hover:bg-slate-700">Ping Webhook</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between">
+          <div id="channel-test-feedback" class="text-xs text-emerald-400 font-mono"></div>
+          <button id="save-channels-btn" onclick="saveChannelIntegrations()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-400 text-slate-950 font-bold text-xs hover:opacity-95 transition">
+            Save Channel Settings
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Advanced AI Video Reel Generator Modal -->
+  <div id="advanced-video-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass max-w-2xl w-full rounded-3xl p-6 sm:p-8 border border-teal-500/40 shadow-2xl relative max-h-[92vh] overflow-y-auto space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div>
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span>✨ Advanced AI Video Studio</span>
+            <span class="px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 font-mono text-[10px] font-bold">VIRAL REELS & SHORTS</span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Generate high-retention 9:16 vertical video scripts with precise camera cues, voiceovers, and overlays.</p>
+        </div>
+        <button onclick="closeAdvancedVideoModal()" class="text-slate-400 hover:text-white text-xl">✕</button>
+      </div>
+
+      <!-- Quick Preset Creative Angles -->
+      <div class="space-y-2">
+        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">Choose a Creative Hook Angle Preset:</label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+          <button type="button" onclick="selectVideoAngle('CONTRARIAN_MYTH')" class="p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-teal-500/40 text-left transition space-y-1">
+            <div class="font-bold text-teal-400">⚡ Contrarian Myth</div>
+            <div class="text-[11px] text-slate-400">"Stop reading grammar books! The 10-minute micro speaking habit."</div>
+          </button>
+          <button type="button" onclick="selectVideoAngle('JOB_INTERVIEW')" class="p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-teal-500/40 text-left transition space-y-1">
+            <div class="font-bold text-cyan-400">💼 Interview Fluency</div>
+            <div class="text-[11px] text-slate-400">"How to answer 'Tell me about yourself' with confidence & no stutter."</div>
+          </button>
+          <button type="button" onclick="selectVideoAngle('OFFLINE_HACK')" class="p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-teal-500/40 text-left transition space-y-1">
+            <div class="font-bold text-emerald-400">🚇 Airplane Mode Test</div>
+            <div class="text-[11px] text-slate-400">"Mastering 3,000 words on the metro with 0 mobile data needed."</div>
+          </button>
+          <button type="button" onclick="selectVideoAngle('STUDENT_COMEDY')" class="p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-teal-500/40 text-left transition space-y-1">
+            <div class="font-bold text-amber-400">🎓 Student Oral Exam</div>
+            <div class="text-[11px] text-slate-400">"Relatable comedy: Freezing in English exams vs speaking easily."</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Detailed Prompt Input -->
+      <div class="space-y-2">
+        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">Detailed Video Vision & Custom Instructions:</label>
+        <textarea id="adv-video-prompt" rows="3" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-teal-500" placeholder="e.g., Focus on a young college graduate who wants to work in an IT company but feels shy speaking English during campus interviews..."></textarea>
+      </div>
+
+      <!-- Video Settings Row -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+        <div>
+          <label class="block text-[11px] font-bold text-slate-400 mb-1">Target Platform</label>
+          <select id="adv-video-platform" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-200">
+            <option value="INSTAGRAM_REELS">Instagram Reels</option>
+            <option value="TIKTOK">TikTok</option>
+            <option value="YOUTUBE_SHORTS">YouTube Shorts</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-slate-400 mb-1">Duration</label>
+          <select id="adv-video-duration" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-200">
+            <option value="30">30 Seconds (Viral Standard)</option>
+            <option value="15">15 Seconds (Fast Hook)</option>
+            <option value="45">45 Seconds (Deep Walkthrough)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-slate-400 mb-1">Visual Tone</label>
+          <select id="adv-video-style" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-200">
+            <option value="FAST_PACED_SCREEN">Fast-Paced Screen Demo</option>
+            <option value="CASUAL_CREATOR">Casual Creator Vlog</option>
+            <option value="PROBLEM_SOLUTION">Problem-Agitation-Solution</option>
+            <option value="SKIT">Relatable Comedy Skit</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="pt-4 border-t border-slate-800 flex items-center justify-between gap-3">
+        <button onclick="closeAdvancedVideoModal()" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition">
+          Cancel
+        </button>
+        <button id="adv-video-submit-btn" onclick="submitAdvancedVideoGeneration()" class="px-5 py-2.5 rounded-xl text-xs font-black text-slate-950 bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-400 hover:opacity-95 shadow-md shadow-teal-500/20 transition flex items-center gap-2">
+          <span id="adv-video-spinner" class="hidden w-3 h-3 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span>
+          <span id="adv-video-btn-text">🚀 Generate Video Script & Storyboard</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real Automation Deployment Terminal Modal -->
+  <div id="automation-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass max-w-2xl w-full rounded-3xl p-6 sm:p-8 border border-cyan-500/40 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-cyan-400 animate-ping"></span>
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span>⚡ Automated Marketing Engine</span>
+            <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono text-[10px]">LIVE EXECUTION</span>
+          </h3>
+        </div>
+        <button onclick="closeAutomationModal()" class="text-slate-400 hover:text-white text-lg">✕</button>
+      </div>
+
+      <!-- Target Product & Channels Context Card -->
+      <div id="auto-targets-card" class="mb-3 p-3 rounded-xl bg-slate-900 border border-slate-800 text-[11px] font-mono space-y-1">
+        <div class="flex items-center justify-between text-slate-300">
+          <span>Target Product: <strong id="auto-target-brand" class="text-white">Engligenious</strong></span>
+          <span id="auto-target-mode" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">SANDBOX SIMULATION</span>
+        </div>
+        <div class="text-slate-400 truncate">URL: <span id="auto-target-url" class="text-cyan-400">https://play.google.com/store/apps/details?id=com.engligenious.app</span></div>
+        <div class="flex flex-wrap gap-x-4 gap-y-1 text-slate-400 pt-1 border-t border-slate-800/80">
+          <span>💼 LinkedIn: <span id="auto-target-li" class="text-slate-300">Connected</span></span>
+          <span>📸 Instagram: <span id="auto-target-ig" class="text-slate-300">Connected</span></span>
+          <span>📧 Email: <span id="auto-target-email" class="text-slate-300">Resend</span></span>
+        </div>
+      </div>
+
+      <div id="automation-terminal-feed" class="space-y-3 font-mono text-xs">
+        <div class="p-4 rounded-xl bg-slate-950/90 border border-slate-800 space-y-2.5 text-slate-300">
+          <div class="flex items-center gap-2 text-cyan-400 font-bold" id="auto-status-header">
+            <span class="animate-spin inline-block">⚙</span> Executing automated workflows across channels...
+          </div>
+          <div id="auto-step-pseo" class="text-slate-400 pl-4">⏳ 1. Building Programmatic SEO landing pages...</div>
+          <div id="auto-step-drip" class="text-slate-400 pl-4">⏳ 2. Enqueuing 30-day email nurture sequence into queue worker...</div>
+          <div id="auto-step-social" class="text-slate-400 pl-4">⏳ 3. Publishing multi-platform social media broadcasts...</div>
+          <div id="auto-step-banners" class="text-slate-400 pl-4">⏳ 4. Generating visual SVG ad banners (1:1, 9:16, 16:9)...</div>
+        </div>
+      </div>
+
+      <div id="automation-results-container" class="mt-4 hidden space-y-3 text-xs">
+        <!-- Rendered results with clickable links -->
+      </div>
+
+      <div class="mt-6 flex items-center justify-between pt-3 border-t border-slate-800">
+        <span class="text-xs text-slate-400 font-mono" id="auto-footer-summary">Execution in progress...</span>
+        <button onclick="closeAutomationModal()" class="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ad Banners Visual Preview Modal -->
+  <div id="banners-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass max-w-4xl w-full rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">🎨</span>
+          <h3 class="text-base font-bold text-white">Visual Ad Banner Studio (SVG Vector Banners)</h3>
+        </div>
+        <button onclick="closeBannersModal()" class="text-slate-400 hover:text-white text-lg">✕</button>
+      </div>
+      <div id="banners-grid-container" class="grid md:grid-cols-3 gap-6 items-start">
+        <!-- Dynamically rendered SVGs -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab Switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('[id^="tab-btn-"]').forEach(b => {
+        b.classList.remove('text-cyan-400', 'bg-slate-900', 'border', 'border-cyan-500/30', 'font-bold');
+        b.classList.add('text-slate-400', 'font-medium');
+      });
+
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.remove('hidden');
+      const activeBtn = document.getElementById('tab-btn-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.add('text-cyan-400', 'bg-slate-900', 'border', 'border-cyan-500/30', 'font-bold');
+        activeBtn.classList.remove('text-slate-400', 'font-medium');
+      }
+    }
+
+    function setPrompt(text) {
+      const input = document.getElementById('user-goal-input');
+      if (text.includes('Implant')) {
+        input.value = "I want to attract 50 dental implant patients over the next 30 days in New York with a focus on Manhattan and Brooklyn.";
+      } else if (text.includes('Engligenious')) {
+        input.value = "Acquire 5,000 active Android learners for Engligenious spoken English app via Instagram Reels and Play Store ASO.";
+      } else if (text.includes('Aligner')) {
+        input.value = "Generate a 30-day Programmatic SEO & Instagram campaign for clear aligners in Manhattan.";
+      } else if (text.includes('Reviews') || text.includes('Reputation')) {
+        input.value = "Automate Google Reviews follow-up on WhatsApp and protect our 5-star reputation.";
+      } else {
+        input.value = text;
+      }
+      input.focus();
+    }
+
+    function escapeHtml(str) {
+      if (typeof str !== 'string') return str || '';
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function showToast(title, subtitle) {
+      const toast = document.getElementById('plan-toast');
+      if (!toast) return;
+      document.getElementById('toast-title').innerText = title;
+      document.getElementById('toast-subtitle').innerText = subtitle;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4500);
+    }
+
+    function updateStepUI(activeStep, message) {
+      for (let i = 1; i <= 6; i++) {
+        const node = document.getElementById(`step-node-${i}`);
+        const icon = document.getElementById(`step-icon-${i}`);
+        if (!node || !icon) continue;
+
+        if (i < activeStep) {
+          node.className = "p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/50 text-emerald-400 font-semibold transition";
+          icon.innerHTML = "✓";
+        } else if (i === activeStep) {
+          node.className = "p-3 rounded-xl bg-cyan-950/60 border border-cyan-400 text-white font-bold ring-2 ring-cyan-500/30 transition animate-pulse";
+          icon.innerHTML = `<span class="inline-block animate-spin">⚙</span>`;
+        } else {
+          node.className = "p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-500 font-semibold transition";
+          icon.innerHTML = `${i}`;
+        }
+      }
+      if (message) {
+        const statusText = document.getElementById('pipeline-status-text');
+        if (statusText) statusText.innerText = message;
+      }
+    }
+
+    function markAllStepsComplete() {
+      for (let i = 1; i <= 6; i++) {
+        const node = document.getElementById(`step-node-${i}`);
+        const icon = document.getElementById(`step-icon-${i}`);
+        if (node && icon) {
+          node.className = "p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/50 text-emerald-400 font-semibold transition";
+          icon.innerHTML = "✓";
+        }
+      }
+      const statusText = document.getElementById('pipeline-status-text');
+      if (statusText) statusText.innerText = 'Plan Validated & Active (Status: DRAFT)';
+    }
+
+    // Modal Controls
+    function openChannelsModal() {
+      document.getElementById('channels-modal').classList.remove('hidden');
+      loadSettings();
+    }
+    function closeChannelsModal() {
+      document.getElementById('channels-modal').classList.add('hidden');
+    }
+    function switchSettingsTab(tab) {
+      const pProd = document.getElementById('settings-panel-product');
+      const pChan = document.getElementById('settings-panel-channels');
+      const bProd = document.getElementById('modal-tab-btn-product');
+      const bChan = document.getElementById('modal-tab-btn-channels');
+      if (tab === 'product') {
+        pProd.classList.remove('hidden');
+        pChan.classList.add('hidden');
+        bProd.className = "px-4 py-2 border-b-2 border-cyan-400 text-cyan-300 text-xs font-bold transition";
+        bChan.className = "px-4 py-2 border-b-2 border-transparent text-slate-400 hover:text-slate-200 text-xs font-semibold transition";
+      } else {
+        pProd.classList.add('hidden');
+        pChan.classList.remove('hidden');
+        bChan.className = "px-4 py-2 border-b-2 border-cyan-400 text-cyan-300 text-xs font-bold transition";
+        bProd.className = "px-4 py-2 border-b-2 border-transparent text-slate-400 hover:text-slate-200 text-xs font-semibold transition";
+      }
+    }
+
+    async function loadSettings() {
+      try {
+        const res = await fetch('/api/v1/settings');
+        const data = await res.json();
+        if (data.success && data.settings) {
+          window.systemSettings = data.settings;
+          const p = data.settings.brandProfile;
+          const i = data.settings.integrations;
+
+          // Update product inputs
+          if (document.getElementById('set-company-name')) document.getElementById('set-company-name').value = p.companyName || '';
+          if (document.getElementById('set-product-type')) document.getElementById('set-product-type').value = p.productType || '';
+          if (document.getElementById('set-playstore-url')) document.getElementById('set-playstore-url').value = p.playStoreUrl || '';
+          if (document.getElementById('set-website-url')) document.getElementById('set-website-url').value = p.websiteUrl || '';
+          if (document.getElementById('set-target-audience')) document.getElementById('set-target-audience').value = p.targetAudience || '';
+          if (document.getElementById('set-primary-location')) document.getElementById('set-primary-location').value = p.primaryLocation || '';
+          if (document.getElementById('set-value-prop')) document.getElementById('set-value-prop').value = p.valueProposition || '';
+          if (document.getElementById('set-features')) document.getElementById('set-features').value = (p.keyFeatures || []).join(', ');
+
+          // Update channel inputs
+          if (document.getElementById('set-exec-mode')) document.getElementById('set-exec-mode').value = i.mode || 'SANDBOX';
+          if (document.getElementById('set-li-urn')) document.getElementById('set-li-urn').value = i.linkedin?.organizationUrn || '';
+          if (document.getElementById('set-li-token')) document.getElementById('set-li-token').value = i.linkedin?.accessToken || '';
+          if (document.getElementById('set-meta-igid')) document.getElementById('set-meta-igid').value = i.meta?.instagramAccountId || '';
+          if (document.getElementById('set-meta-token')) document.getElementById('set-meta-token').value = i.meta?.pageAccessToken || '';
+          if (document.getElementById('set-email-provider')) document.getElementById('set-email-provider').value = i.email?.provider || 'RESEND';
+          if (document.getElementById('set-email-from')) document.getElementById('set-email-from').value = i.email?.fromEmail || '';
+          if (document.getElementById('set-email-key')) document.getElementById('set-email-key').value = i.email?.apiKey || '';
+          if (document.getElementById('set-webhook-url')) document.getElementById('set-webhook-url').value = i.webhook?.webhookUrl || '';
+
+          // Header subtitle & badges
+          const sub = document.getElementById('header-brand-subtitle');
+          if (sub) sub.innerText = `${p.companyName} • ${p.productType} (${p.primaryLocation})`;
+          const badge = document.getElementById('connected-channels-badge');
+          if (badge) {
+            let count = 0;
+            if (i.linkedin?.enabled) count++;
+            if (i.meta?.enabled) count++;
+            if (i.email?.enabled) count++;
+            if (i.playStore?.enabled) count++;
+            badge.innerText = `${count} Connected (${i.mode})`;
+          }
+          const modeBadge = document.getElementById('modal-mode-badge');
+          if (modeBadge) {
+            modeBadge.innerText = i.mode === 'PRODUCTION' ? '⚡ LIVE PRODUCTION' : '🧪 SANDBOX VERIFIED';
+            modeBadge.className = i.mode === 'PRODUCTION' 
+              ? "px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-mono text-[10px] font-bold border border-rose-500/40"
+              : "px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold border border-emerald-500/40";
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load settings:', err);
+      }
+    }
+
+    async function saveBrandProfile() {
+      const btn = document.getElementById('save-brand-btn');
+      btn.disabled = true;
+      btn.innerText = 'Saving...';
+      const payload = {
+        companyName: document.getElementById('set-company-name').value.trim(),
+        productType: document.getElementById('set-product-type').value,
+        playStoreUrl: document.getElementById('set-playstore-url').value.trim(),
+        websiteUrl: document.getElementById('set-website-url').value.trim(),
+        targetAudience: document.getElementById('set-target-audience').value.trim(),
+        primaryLocation: document.getElementById('set-primary-location').value.trim(),
+        valueProposition: document.getElementById('set-value-prop').value.trim(),
+        keyFeatures: document.getElementById('set-features').value.split(',').map(s => s.trim()).filter(Boolean),
+      };
+
+      try {
+        const res = await fetch('/api/v1/settings/brand', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        if (data.success) {
+          showToast('Brand Profile Saved!', `Configured for ${payload.companyName}`);
+          loadSettings();
+        }
+      } catch (err) {
+        alert('Error saving brand: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'Save Product Profile';
+      }
+    }
+
+    async function saveChannelIntegrations() {
+      const btn = document.getElementById('save-channels-btn');
+      btn.disabled = true;
+      btn.innerText = 'Saving...';
+
+      const payload = {
+        mode: document.getElementById('set-exec-mode').value,
+        linkedin: {
+          enabled: true,
+          organizationUrn: document.getElementById('set-li-urn').value.trim(),
+          accessToken: document.getElementById('set-li-token').value.trim(),
+          status: 'CONNECTED',
+        },
+        meta: {
+          enabled: true,
+          instagramAccountId: document.getElementById('set-meta-igid').value.trim(),
+          pageAccessToken: document.getElementById('set-meta-token').value.trim(),
+          status: 'CONNECTED',
+        },
+        email: {
+          enabled: true,
+          provider: document.getElementById('set-email-provider').value,
+          fromEmail: document.getElementById('set-email-from').value.trim(),
+          apiKey: document.getElementById('set-email-key').value.trim(),
+          fromName: document.getElementById('set-company-name')?.value || 'Growth Team',
+          status: 'CONNECTED',
+        },
+        webhook: {
+          enabled: !!document.getElementById('set-webhook-url').value.trim(),
+          webhookUrl: document.getElementById('set-webhook-url').value.trim(),
+          status: document.getElementById('set-webhook-url').value.trim() ? 'CONNECTED' : 'DISCONNECTED',
+        },
+      };
+
+      try {
+        const res = await fetch('/api/v1/settings/integrations', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        if (data.success) {
+          showToast('Channels Saved!', `Execution Mode: ${payload.mode}`);
+          loadSettings();
+        }
+      } catch (err) {
+        alert('Error saving channels: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'Save Channel Settings';
+      }
+    }
+
+    async function testChannelConnection(channel) {
+      const feedback = document.getElementById('channel-test-feedback');
+      feedback.innerText = `Pinging ${channel}...`;
+      try {
+        const res = await fetch('/api/v1/settings/test-connection', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ channel }),
+        });
+        const data = await res.json();
+        feedback.innerText = `✓ ${data.message}`;
+        showToast('Connection Tested', data.message);
+      } catch (e) {
+        feedback.innerText = `✕ Error: ${e.message}`;
+      }
+    }
+
+    function applyBrandToSearchInput() {
+      const name = document.getElementById('set-company-name').value || 'Engligenious';
+      const type = document.getElementById('set-product-type').value || 'Android App';
+      const prop = document.getElementById('set-value-prop').value || 'rapid fluency with micro-learning';
+      const loc = document.getElementById('set-primary-location').value || 'Global';
+      
+      const prompt = `Acquire 10,000 active users for ${name} (${type}) in ${loc} focusing on ${prop}.`;
+      document.getElementById('user-goal-input').value = prompt;
+      closeChannelsModal();
+      showToast('Search Goal Populated!', `Loaded brand goal for ${name}`);
+      document.getElementById('user-goal-input').focus();
+    }
+
+    function closeAutomationModal() {
+      document.getElementById('automation-modal').classList.add('hidden');
+    }
+    function closeBannersModal() {
+      document.getElementById('banners-modal').classList.add('hidden');
+    }
+
+    // Dynamic Multi-Tab Renderer
+    function renderMarketingPlan(plan) {
+      if (!plan || !plan.strategy) return;
+      window.currentPlan = plan;
+      savePlanLocally(plan);
+
+      // Tab 1: Strategy & KPIs
+      document.getElementById('strat-campaign-name').innerText = plan.strategy.campaignName || 'Generated Marketing Plan';
+      document.getElementById('strat-value-prop').innerText = plan.strategy.coreValueProposition || '';
+
+      const personasContainer = document.getElementById('strat-personas-container');
+      if (personasContainer && plan.strategy.targetPersonas) {
+        personasContainer.innerHTML = plan.strategy.targetPersonas.map(p => `
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-sm">${escapeHtml(p.name)}</span>
+              <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-[10px]">${escapeHtml(p.demographics)}</span>
+            </div>
+            <div class="text-xs text-slate-300"><strong class="text-rose-400">Pain Points:</strong> ${escapeHtml((p.painPoints || []).join(', '))}</div>
+            <div class="text-xs text-slate-300"><strong class="text-teal-400">Motivation:</strong> ${escapeHtml(p.motivation)}</div>
+          </div>
+        `).join('');
+      }
+
+      const budgetContainer = document.getElementById('strat-budget-container');
+      if (budgetContainer && plan.strategy.budgetAllocation) {
+        budgetContainer.innerHTML = Object.entries(plan.strategy.budgetAllocation).map(([channel, pct]) => `
+          <div>
+            <div class="flex justify-between text-slate-300 mb-1">
+              <span>${escapeHtml(channel)}</span>
+              <span class="font-bold text-teal-400">${escapeHtml(pct)}</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-teal-400 to-cyan-500 rounded-full" style="width: ${escapeHtml(pct)}"></div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      const kpisContainer = document.getElementById('strat-kpis-container');
+      if (kpisContainer && plan.strategy.targetKPIs) {
+        kpisContainer.innerHTML = plan.strategy.targetKPIs.map(kpi => `
+          <div class="flex items-center justify-between p-2 rounded-lg bg-slate-900/60 border border-slate-800/80">
+            <span class="text-slate-300 font-medium">${escapeHtml(kpi.metric)}</span>
+            <span class="text-cyan-400 font-mono font-bold">${escapeHtml(kpi.targetValue)}</span>
+          </div>
+        `).join('');
+      }
+
+      // Tab 2: SEO & pSEO
+      if (plan.seo) {
+        const seoClusters = document.getElementById('seo-clusters-container');
+        if (seoClusters && plan.seo.primaryKeywordClusters) {
+          let clustersHtml = plan.seo.primaryKeywordClusters.map(c => `
+            <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-white text-xs">${escapeHtml(c.clusterName)}</span>
+                <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono text-[10px] font-semibold">${escapeHtml(c.searchIntent)}</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${(c.keywords || []).map(kw => `<span class="px-2 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">${escapeHtml(kw)}</span>`).join('')}
+              </div>
+            </div>
+          `).join('');
+
+          if (plan.seo.localSEOTactics && plan.seo.localSEOTactics.length) {
+            clustersHtml += `
+              <div class="mt-4 p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-1.5">
+                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Local SEO Directives:</div>
+                ${plan.seo.localSEOTactics.map(t => `<div class="text-slate-300 text-xs flex items-center gap-1.5"><span class="text-cyan-400">✓</span> ${escapeHtml(t)}</div>`).join('')}
+              </div>
+            `;
+          }
+          seoClusters.innerHTML = clustersHtml;
+        }
+
+        const seoMatrix = document.getElementById('seo-matrix-container');
+        if (seoMatrix && plan.seo.programmaticSEOMatrix) {
+          const titles = plan.seo.programmaticSEOMatrix.samplePageTitles || [];
+          seoMatrix.innerHTML = `
+            <div class="space-y-2">
+              ${titles.map((t, idx) => {
+                const slug = t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                return `
+                  <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between gap-2">
+                    <span class="text-cyan-300 truncate text-xs">📄 ${escapeHtml(t)}</span>
+                    <a href="/landing/${slug}.html" target="_blank" class="px-2 py-1 rounded bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 font-bold text-[10px] whitespace-nowrap transition">
+                      Preview Page ↗
+                    </a>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+            <button onclick="deployFullCampaignAutomation()" class="w-full mt-3 py-2.5 rounded-xl bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 font-bold text-xs border border-teal-500/40 transition flex items-center justify-center gap-2">
+              <span>🚀 Build & Publish 10 HTML Landing Pages</span>
+            </button>
+          `;
+          const countElem = document.getElementById('seo-pages-count');
+          if (countElem) {
+            countElem.innerText = `${plan.seo.programmaticSEOMatrix.totalGeneratedPagesTarget || titles.length} Pages Programmatically Planned`;
+          }
+        }
+      }
+
+      // Tab 3: Content & Social Reels
+      if (plan.content) {
+        const blogContainer = document.getElementById('content-blog-container');
+        if (blogContainer && plan.content.blogPost) {
+          const b = plan.content.blogPost;
+          blogContainer.innerHTML = `
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5">
+              <div class="text-sm font-bold text-white">${escapeHtml(b.title)}</div>
+              <div class="text-xs text-cyan-400 font-mono">Target Keyword: ${escapeHtml(b.targetKeyword)}</div>
+              <p class="text-xs text-slate-300 italic">"${escapeHtml(b.seoMetaDescription)}"</p>
+              <div class="mt-2 text-xs font-semibold text-slate-400 uppercase tracking-wider">Article Outline:</div>
+              <ul class="space-y-1 text-xs text-slate-300 pl-4 list-disc marker:text-cyan-400">
+                ${(b.outline || []).map(item => `<li>${escapeHtml(item)}</li>`).join('')}
+              </ul>
+            </div>
+          `;
+        }
+
+        const reelContainer = document.getElementById('content-reel-container');
+        if (reelContainer && plan.content.shortFormVideoReel) {
+          const r = plan.content.shortFormVideoReel;
+          window.currentReelData = r;
+          window.activeReelSceneIdx = 0;
+          
+          const studioTitle = document.getElementById('reel-studio-title');
+          if (studioTitle) studioTitle.innerText = r.title || '30-Second Viral Short Video';
+
+          const scenes = Array.isArray(r.bodyScenes) && r.bodyScenes.length > 0 ? r.bodyScenes : [
+            { sceneNumber: 1, visualPrompt: 'Hook: Frustrated learner looking at textbook, then smiling with phone', spokenScript: 'Stop memorizing boring grammar rules! Here is how to speak fluent English in 10 minutes a day.', onScreenText: 'Speak Fluent English in 10 Mins/Day' },
+            { sceneNumber: 2, visualPrompt: 'Phone screen demo: Tap daily micro-lesson streak', spokenScript: 'Engligenious gives you 10-minute micro-lessons that turn daily speaking into a fun habit.', onScreenText: 'Gamified 10-Min Daily Streaks' },
+            { sceneNumber: 3, visualPrompt: 'AI Speech waveform feedback on device with green checkmark', spokenScript: 'Real-time AI voice evaluation corrects your pronunciation and syllable stress instantly.', onScreenText: 'Real-Time AI Accent & Speech Feedback' },
+            { sceneNumber: 4, visualPrompt: 'Airplane mode on phone: App running 100% offline with Google Play CTA', spokenScript: 'And it works 100% offline without wifi! Download Engligenious free on Google Play Store now.', onScreenText: '100% Offline • Free on Google Play' }
+          ];
+          window.currentReelScenes = scenes;
+
+          reelContainer.innerHTML = `
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+              <!-- Left: 9:16 Interactive Smartphone Simulator -->
+              <div class="lg:col-span-5 flex flex-col items-center">
+                <div class="relative w-full max-w-[300px] sm:max-w-[320px] aspect-[9/16] rounded-[42px] border-[6px] border-slate-700 bg-black shadow-2xl shadow-cyan-950/40 overflow-hidden flex flex-col justify-between p-4 selection:bg-transparent">
+                  
+                  <!-- Phone Top Notch & Status Bar -->
+                  <div class="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-4 rounded-full bg-slate-800 z-30 flex items-center justify-center">
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-700"></div>
+                  </div>
+
+                  <!-- 4-Segment Progress Bar -->
+                  <div class="relative z-20 pt-4 grid grid-cols-4 gap-1.5 w-full">
+                    ${scenes.map((s, idx) => `
+                      <div id="reel-prog-${idx}" class="h-1 rounded-full ${idx === 0 ? 'bg-cyan-400' : 'bg-slate-700'} transition-all duration-300"></div>
+                    `).join('')}
+                  </div>
+
+                  <!-- Video Reel Screen Body (Dynamic per Scene) -->
+                  <div id="reel-screen-canvas" class="relative z-10 flex-1 flex flex-col justify-between my-2 p-3 rounded-2xl bg-gradient-to-b from-indigo-950/80 via-slate-950 to-teal-950/90 border border-slate-800 text-center relative overflow-hidden">
+                    
+                    <!-- Floating Top Platform Label -->
+                    <div class="flex items-center justify-between text-[11px] text-slate-300 font-bold">
+                      <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span> Reels • Shorts</span>
+                      <span id="reel-screen-time" class="px-2 py-0.5 rounded-full bg-black/60 text-teal-300 font-mono text-[10px] border border-teal-500/30">Scene 1 / ${scenes.length}</span>
+                    </div>
+
+                    <!-- Center Animated Typography Visual -->
+                    <div class="my-auto py-6 space-y-3 px-2">
+                      <div id="reel-screen-badge" class="inline-block px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 font-extrabold text-[11px] tracking-wide uppercase border border-cyan-500/30">
+                        ⚡ 3-Second Hook
+                      </div>
+                      <div id="reel-screen-overlay" class="text-xl font-black text-white leading-tight drop-shadow-md">
+                        "${escapeHtml(scenes[0].onScreenText || r.hookVisualAndAudio)}"
+                      </div>
+                      <div id="reel-screen-visual-prompt" class="text-[11px] text-teal-300/90 italic bg-black/50 p-2 rounded-xl border border-teal-500/20">
+                        👁 Visual: ${escapeHtml(scenes[0].visualPrompt)}
+                      </div>
+                    </div>
+
+                    <!-- Spoken Dialogue Subtitle & Audio Wave -->
+                    <div class="space-y-2">
+                      <!-- Live Audio Equalizer Waves -->
+                      <div class="flex items-center justify-center gap-1 py-1">
+                        <span class="w-1 h-3 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <span class="w-1 h-6 rounded-full bg-teal-400 animate-pulse" style="animation-delay: 0.15s"></span>
+                        <span class="w-1 h-4 rounded-full bg-emerald-400 animate-pulse" style="animation-delay: 0.3s"></span>
+                        <span class="w-1 h-7 rounded-full bg-cyan-400 animate-pulse" style="animation-delay: 0.1s"></span>
+                        <span class="w-1 h-3 rounded-full bg-teal-400 animate-pulse" style="animation-delay: 0.25s"></span>
+                      </div>
+                      <div id="reel-screen-dialogue" class="p-2.5 rounded-xl bg-black/80 backdrop-blur-md border border-slate-700 text-left">
+                        <div class="text-[9px] font-bold uppercase tracking-wider text-cyan-400 mb-0.5">🎙️ Spoken Voiceover:</div>
+                        <div id="reel-dialogue-text" class="text-xs text-slate-100 font-medium leading-snug">
+                          "${escapeHtml(scenes[0].spokenScript)}"
+                        </div>
+                      </div>
+                      <!-- Google Play Sticker -->
+                      <a href="https://play.google.com/store/apps/details?id=com.engligenious.app" target="_blank" class="block w-full py-2 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 text-slate-950 font-black text-xs shadow-lg text-center transform hover:scale-105 transition">
+                        📲 Install on Google Play (Free)
+                      </a>
+                    </div>
+
+                    <!-- Floating Right Engagement Bar (Reels/TikTok style) -->
+                    <div class="absolute right-2.5 top-1/3 flex flex-col items-center gap-3 text-white text-[10px] font-bold pointer-events-none">
+                      <div class="flex flex-col items-center"><span class="text-rose-500 text-base">❤️</span><span>18.4K</span></div>
+                      <div class="flex flex-col items-center"><span class="text-white text-base">💬</span><span>429</span></div>
+                      <div class="flex flex-col items-center"><span class="text-cyan-400 text-base">↗️</span><span>1.2K</span></div>
+                      <div class="w-7 h-7 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center animate-spin text-[10px]">🎵</div>
+                    </div>
+                  </div>
+
+                  <!-- Play / Step Controls on Phone Base -->
+                  <div class="relative z-20 flex items-center justify-between pt-2 px-1 border-t border-slate-800 text-xs">
+                    <button onclick="prevReelScene()" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold">⏮ Prev</button>
+                    <button onclick="playReelSimulation()" class="px-3 py-1 rounded-lg bg-teal-400 text-slate-950 font-black flex items-center gap-1.5">
+                      <span id="mini-play-icon">▶</span> <span id="mini-play-text">Play</span>
+                    </button>
+                    <button onclick="nextReelScene()" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold">Next ⏭</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: 4-Scene Storyboard & Script Breakdown -->
+              <div class="lg:col-span-7 space-y-4">
+                <div class="p-4 rounded-2xl bg-cyan-950/40 border border-cyan-500/20 text-xs text-cyan-200 flex items-start gap-3">
+                  <span class="text-lg">🎬</span>
+                  <div>
+                    <strong class="text-cyan-300">The 3-Second Retention Hook:</strong>
+                    <p class="mt-1 text-slate-300 leading-relaxed">${escapeHtml(r.hookVisualAndAudio)}</p>
+                  </div>
+                </div>
+
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between text-xs font-bold text-slate-400">
+                    <span>Scene-by-Scene Storyboard (Click any scene to inspect):</span>
+                    <span class="text-teal-400 font-mono">Total: 30 Seconds</span>
+                  </div>
+
+                  ${scenes.map((s, idx) => `
+                    <div id="scene-card-${idx}" onclick="seekReelScene(${idx})" class="cursor-pointer p-4 rounded-2xl ${idx === 0 ? 'bg-slate-900 border-2 border-teal-400 shadow-lg' : 'bg-slate-950/80 border border-slate-800 hover:border-slate-700'} transition space-y-2 group">
+                      <div class="flex items-center justify-between">
+                        <span class="font-extrabold text-xs ${idx === 0 ? 'text-teal-300' : 'text-slate-300 group-hover:text-white'}">
+                          Scene ${s.sceneNumber} (${idx === 0 ? '0-5s Hook' : idx === 1 ? '5-15s Problem' : idx === 2 ? '15-25s App Demo' : '25-30s CTA'})
+                        </span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 font-mono text-[10px] font-bold">
+                          ${idx === 0 ? '⚡ Stop Scroll' : idx === 1 ? '💡 Core Pain' : idx === 2 ? '📱 Feature Highlight' : '🚀 Conversion CTA'}
+                        </span>
+                      </div>
+                      <div class="text-xs text-slate-300">
+                        <strong class="text-slate-400 font-semibold">Spoken Script:</strong> "${escapeHtml(s.spokenScript)}"
+                      </div>
+                      <div class="flex items-center justify-between text-[11px] text-slate-400 pt-1 border-t border-slate-800/80">
+                        <span><strong>Overlay:</strong> <code class="text-cyan-300">${escapeHtml(s.onScreenText || '')}</code></span>
+                        <span class="text-[10px] text-teal-400 font-bold group-hover:underline">Preview on Phone →</span>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 pt-4">
+                  <div class="text-xs text-slate-300">
+                    <strong class="text-teal-400">Call to Action:</strong> ${escapeHtml(r.cta)}
+                  </div>
+                  <div class="flex items-center gap-2 shrink-0">
+                    <button onclick="copyReelScript()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 transition">
+                      📋 Copy Script
+                    </button>
+                    <button onclick="generateAdBannersModal()" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-400 text-slate-950 text-xs font-black hover:opacity-95 shadow transition">
+                      🎨 Render Ad Banners
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        const socialContainer = document.getElementById('content-social-container');
+        if (socialContainer && plan.content.socialPosts) {
+          socialContainer.innerHTML = plan.content.socialPosts.map((post, idx) => `
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2 flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono text-[10px] font-bold">${escapeHtml(post.platform)}</span>
+                  <span class="text-slate-500 text-[10px]">Automated API Channel</span>
+                </div>
+                <div class="font-bold text-white text-xs">${escapeHtml(post.hook)}</div>
+                <p class="text-slate-300 text-xs whitespace-pre-line leading-relaxed">${escapeHtml(post.content)}</p>
+                <div class="text-cyan-400 font-mono text-[11px]">${(post.hashtags || []).map(escapeHtml).join(' ')}</div>
+              </div>
+              <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+                <span class="text-[11px] text-teal-400 font-medium">CTA: ${escapeHtml(post.callToAction)}</span>
+                <button id="pub-btn-${idx}" onclick="publishSingleSocialPost(${idx})" class="px-3 py-1.5 rounded-lg bg-indigo-500/20 hover:bg-indigo-500/40 text-indigo-300 font-bold text-[11px] border border-indigo-500/30 transition shrink-0">
+                  🚀 1-Click Publish
+                </button>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+
+      // Tab 4: Ads & Email Drip
+      if (plan.campaign) {
+        const adContainer = document.getElementById('campaign-ad-container');
+        if (adContainer) {
+          const meta = plan.campaign.adCopies?.metaAds;
+          const google = plan.campaign.adCopies?.googleSearchAd;
+          const funnel = plan.campaign.funnelStages;
+          adContainer.innerHTML = `
+            ${meta ? `
+              <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-mono text-[10px] font-bold">META FEED & REELS AD</span>
+                  <span class="text-cyan-400 font-mono text-[10px] font-bold">${escapeHtml(meta.ctaButton)}</span>
+                </div>
+                <div class="text-xs text-white font-medium">${escapeHtml(meta.headline)}</div>
+                <p class="text-xs text-slate-300 leading-relaxed">${escapeHtml(meta.primaryText)}</p>
+                <div class="text-[11px] text-slate-400 italic bg-slate-950/60 p-2 rounded-lg border border-slate-800">
+                  🎨 Visual Cue: ${escapeHtml(meta.visualDescription)}
+                </div>
+                <button onclick="generateAdBannersModal()" class="w-full py-2 rounded-lg bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 text-xs font-bold border border-blue-500/30 transition">
+                  🎨 Preview SVG Ad Banners (1:1, 9:16, 16:9)
+                </button>
+              </div>
+            ` : ''}
+            ${google ? `
+              <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-mono text-[10px] font-bold">GOOGLE SEARCH SPONSORED</span>
+                  <span class="text-slate-500 text-[10px]">Responsive Search Ad</span>
+                </div>
+                <div class="text-xs font-bold text-cyan-300">
+                  ${(google.headlines || []).map(escapeHtml).join(' | ')}
+                </div>
+                <p class="text-xs text-slate-300">
+                  ${(google.descriptions || []).map(escapeHtml).join(' ')}
+                </p>
+              </div>
+            ` : ''}
+            ${funnel ? `
+              <div class="grid grid-cols-3 gap-2 text-[11px]">
+                <div class="p-2 rounded-lg bg-slate-950/70 border border-slate-800">
+                  <div class="text-slate-400 font-bold uppercase text-[9px]">TOFU Awareness</div>
+                  <div class="text-slate-300 mt-1 truncate" title="${escapeHtml(funnel.tofuAwareness)}">${escapeHtml(funnel.tofuAwareness)}</div>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-950/70 border border-slate-800">
+                  <div class="text-slate-400 font-bold uppercase text-[9px]">MOFU Consideration</div>
+                  <div class="text-slate-300 mt-1 truncate" title="${escapeHtml(funnel.mofuConsideration)}">${escapeHtml(funnel.mofuConsideration)}</div>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-950/70 border border-slate-800">
+                  <div class="text-slate-400 font-bold uppercase text-[9px]">BOFU Conversion</div>
+                  <div class="text-slate-300 mt-1 truncate" title="${escapeHtml(funnel.bofuConversion)}">${escapeHtml(funnel.bofuConversion)}</div>
+                </div>
+              </div>
+            ` : ''}
+          `;
+        }
+
+        const emailsContainer = document.getElementById('campaign-emails-container');
+        if (emailsContainer && plan.campaign.emailNurtureSequence) {
+          emailsContainer.innerHTML = `
+            <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2 mb-3">
+              <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Automated Email Dispatcher:</div>
+              <div class="flex gap-2">
+                <input type="email" id="test-email-input" value="founder@example.com" placeholder="Recipient email address..." class="bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white grow focus:outline-none focus:border-cyan-400">
+                <button onclick="sendTestEmailDirect()" id="test-email-btn" class="px-4 py-1.5 rounded-lg bg-teal-400 text-slate-950 font-bold text-xs hover:bg-teal-300 transition shrink-0">Send Test Email</button>
+              </div>
+              <div id="email-test-feedback" class="text-[11px] text-emerald-400 hidden"></div>
+            </div>
+            ${plan.campaign.emailNurtureSequence.map(e => `
+              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-white text-xs">Email #${e.emailNumber}: ${escapeHtml(e.subjectLine)}</span>
+                  <span class="px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 font-mono text-[10px]">Day +${e.delayDays}</span>
+                </div>
+                <div class="text-[11px] text-slate-400 italic">"${escapeHtml(e.previewText)}"</div>
+                <p class="text-xs text-slate-300 pt-1">${escapeHtml(e.bodyOutline)}</p>
+                <div class="text-[11px] text-cyan-400 font-semibold pt-1 border-t border-slate-800/80">CTA: ${escapeHtml(e.primaryCTA)}</div>
+              </div>
+            `).join('')}
+          `;
+        }
+      }
+
+      // Tab 5: Competitor Radar
+      if (plan.competitorRadar) {
+        const weakContainer = document.getElementById('comp-weaknesses-container');
+        if (weakContainer && plan.competitorRadar.competitorWeaknessesIdentified) {
+          weakContainer.innerHTML = plan.competitorRadar.competitorWeaknessesIdentified.map(w => `
+            <li class="flex items-start gap-2 p-2.5 rounded-lg bg-slate-900/80 border border-slate-800/80">
+              <span class="text-rose-400 mt-0.5">✕</span>
+              <span>${escapeHtml(w)}</span>
+            </li>
+          `).join('');
+        }
+
+        const diffContainer = document.getElementById('comp-diff-container');
+        if (diffContainer && plan.competitorRadar.differentiationPillars) {
+          diffContainer.innerHTML = plan.competitorRadar.differentiationPillars.map(d => `
+            <li class="flex items-start gap-2 p-2.5 rounded-lg bg-slate-900/80 border border-slate-800/80">
+              <span class="text-emerald-400 mt-0.5">✓</span>
+              <span>${escapeHtml(d)}</span>
+            </li>
+          `).join('');
+        }
+
+        const hookContainer = document.getElementById('comp-hook-container');
+        if (hookContainer && plan.competitorRadar.counterMessagingAction) {
+          hookContainer.innerHTML = `
+            <div class="font-bold text-cyan-300 mb-1 uppercase tracking-wider text-[10px]">Counter-Positioning Action Angle</div>
+            <div class="text-slate-200">${escapeHtml(plan.competitorRadar.counterMessagingAction)}</div>
+          `;
+        }
+      }
+    }
+
+    // Full Automated Deployment Execution
+    async function deployFullCampaignAutomation() {
+      if (!window.currentPlan) {
+        alert('Please generate a marketing plan first before deploying automations.');
+        return;
+      }
+
+      const modal = document.getElementById('automation-modal');
+      modal.classList.remove('hidden');
+
+      const header = document.getElementById('auto-status-header');
+      const stepPseo = document.getElementById('auto-step-pseo');
+      const stepDrip = document.getElementById('auto-step-drip');
+      const stepSocial = document.getElementById('auto-step-social');
+      const stepBanners = document.getElementById('auto-step-banners');
+      const resultsContainer = document.getElementById('automation-results-container');
+      const footerSummary = document.getElementById('auto-footer-summary');
+
+      header.innerHTML = `<span class="animate-spin inline-block">⚙</span> Initiating automated campaign pipeline...`;
+      stepPseo.innerHTML = `⏳ 1. Building Programmatic SEO landing pages...`;
+      stepDrip.innerHTML = `⏳ 2. Enqueuing 30-day email nurture sequence into queue worker...`;
+      stepSocial.innerHTML = `⏳ 3. Publishing multi-platform social media broadcasts...`;
+      stepBanners.innerHTML = `⏳ 4. Generating visual SVG ad banners (1:1, 9:16, 16:9)...`;
+      resultsContainer.classList.add('hidden');
+      footerSummary.innerText = 'Communicating with backend automation engine...';
+
+      try {
+        const res = await fetch('/api/v1/automate/deploy-campaign', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ plan: window.currentPlan }),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.success) {
+          throw new Error(data.error || 'Deployment failed');
+        }
+
+        const m = data.manifest;
+        if (m.deployTargets) {
+          const t = m.deployTargets;
+          if (document.getElementById('auto-target-brand')) document.getElementById('auto-target-brand').innerText = t.brandName;
+          if (document.getElementById('auto-target-mode')) {
+            document.getElementById('auto-target-mode').innerText = t.mode === 'PRODUCTION' ? '⚡ LIVE PRODUCTION' : '🧪 SANDBOX SIMULATION';
+            document.getElementById('auto-target-mode').className = t.mode === 'PRODUCTION'
+              ? 'px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold'
+              : 'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold';
+          }
+          if (document.getElementById('auto-target-url')) document.getElementById('auto-target-url').innerText = t.productUrl;
+          if (document.getElementById('auto-target-li')) document.getElementById('auto-target-li').innerText = t.channels?.linkedin || 'Active';
+          if (document.getElementById('auto-target-ig')) document.getElementById('auto-target-ig').innerText = t.channels?.instagram || 'Active';
+          if (document.getElementById('auto-target-email')) document.getElementById('auto-target-email').innerText = t.channels?.email || 'Active';
+        }
+
+        stepPseo.innerHTML = `<span class="text-emerald-400 font-bold">✓ 1.</span> Generated ${m.landingPagesGenerated} Programmatic SEO landing pages in <code class="text-cyan-300">/public/landing/</code>`;
+        stepDrip.innerHTML = `<span class="text-emerald-400 font-bold">✓ 2.</span> Enqueued ${m.emailDripJobsQueued} nurture emails into Background Queue Worker`;
+        stepSocial.innerHTML = `<span class="text-emerald-400 font-bold">✓ 3.</span> Dispatched ${m.socialPostsDispatched} social broadcasts to connected API adapters`;
+        stepBanners.innerHTML = `<span class="text-emerald-400 font-bold">✓ 4.</span> Rendered ${m.adBannersGenerated} multi-aspect ratio SVG ad banners`;
+
+        header.innerHTML = `<span class="text-emerald-400 font-bold">✓</span> Full Omnichannel Automation Suite Successfully Deployed!`;
+        footerSummary.innerText = `Executed at ${new Date(data.executedAt).toLocaleTimeString()} • All Channels Active`;
+
+        // Populate Links and Channels Manifest
+        const t = m.deployTargets || {};
+        resultsContainer.innerHTML = `
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+              <span class="font-bold text-white text-xs uppercase tracking-wider text-cyan-400">Target Product & Dispatched Accounts</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold ${t.mode === 'PRODUCTION' ? 'bg-rose-500/20 text-rose-300' : 'bg-emerald-500/20 text-emerald-300'}">${t.mode || 'SANDBOX'}</span>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-2 text-xs font-mono">
+              <div class="p-2 rounded-lg bg-slate-950 border border-slate-800/80">
+                <span class="text-slate-500">🏢 Product:</span> <strong class="text-white">${t.brandName || 'Configured Brand'}</strong>
+                <div class="text-[10px] text-cyan-400 truncate mt-0.5">${t.productUrl || ''}</div>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-950 border border-slate-800/80">
+                <span class="text-slate-500">💼 LinkedIn Target:</span> <span class="text-indigo-300 truncate">${t.channels?.linkedin || 'Active'}</span>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-950 border border-slate-800/80">
+                <span class="text-slate-500">📸 Instagram Target:</span> <span class="text-rose-300 truncate">${t.channels?.instagram || 'Active'}</span>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-950 border border-slate-800/80">
+                <span class="text-slate-500">📧 Email Dispatcher:</span> <span class="text-teal-300 truncate">${t.channels?.email || 'Active'}</span>
+              </div>
+            </div>
+
+            <div class="font-bold text-white text-xs uppercase tracking-wider text-cyan-400 pt-1">Live Generated Pages (1-Click Previews)</div>
+            <div class="grid sm:grid-cols-2 gap-2 text-xs">
+              ${m.landingPages.slice(0, 4).map(p => `
+                <a href="${p.url}" target="_blank" class="p-2 rounded-lg bg-slate-950 border border-cyan-500/20 text-cyan-300 hover:text-white flex items-center justify-between">
+                  <span class="truncate">📄 ${p.title}</span>
+                  <span class="text-[10px] font-bold text-emerald-400 ml-1">Live ↗</span>
+                </a>
+              `).join('')}
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px]">
+              <a href="${m.sitemapUrl}" target="_blank" class="text-cyan-400 hover:underline">View Generated sitemap.xml ↗</a>
+              <button onclick="generateAdBannersModal()" class="text-teal-400 hover:underline font-bold">View Generated Ad Banners →</button>
+            </div>
+          </div>
+        `;
+        resultsContainer.classList.remove('hidden');
+
+        showToast('Campaign Fully Deployed!', 'Landing pages built, emails enqueued, social posts dispatched.');
+      } catch (err) {
+        console.error(err);
+        header.innerHTML = `<span class="text-rose-400 font-bold">✕</span> Automation Deployment Error: ${err.message}`;
+        footerSummary.innerText = 'Failed to execute all automated tasks.';
+      }
+    }
+
+    // 1-Click Publish Single Social Post
+    async function publishSingleSocialPost(idx) {
+      if (!window.currentPlan?.content?.socialPosts?.[idx]) return;
+      const post = window.currentPlan.content.socialPosts[idx];
+      const btn = document.getElementById(`pub-btn-${idx}`);
+      if (btn) {
+        btn.disabled = true;
+        btn.innerText = 'Publishing...';
+      }
+
+      try {
+        const res = await fetch('/api/v1/automate/publish-social', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(post),
+        });
+        const data = await res.json();
+        if (data.success && data.dispatch) {
+          if (btn) {
+            btn.className = "px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold text-[11px] border border-emerald-500/40";
+            btn.innerHTML = `✓ Published (<a href="${data.dispatch.liveUrl}" target="_blank" class="underline">View Live ↗</a>)`;
+          }
+          showToast('Post Dispatched!', `Successfully published to ${post.platform}`);
+        }
+      } catch (err) {
+        console.error(err);
+        if (btn) {
+          btn.disabled = false;
+          btn.innerText = 'Retry Publish';
+        }
+      }
+    }
+
+    // Send Test Email Immediately
+    async function sendTestEmailDirect() {
+      const input = document.getElementById('test-email-input');
+      const feedback = document.getElementById('email-test-feedback');
+      const btn = document.getElementById('test-email-btn');
+      const toEmail = input.value.trim();
+      if (!toEmail) return;
+
+      btn.disabled = true;
+      btn.innerText = 'Sending...';
+
+      const emailSubject = window.currentPlan?.campaign?.emailNurtureSequence?.[0]?.subjectLine || 'Your Personalized Growth Blueprint';
+      const bodyOutline = window.currentPlan?.campaign?.emailNurtureSequence?.[0]?.bodyOutline || 'Automated onboarding sequence outline.';
+      const businessName = window.currentPlan?.strategy?.campaignName?.split('-')[0]?.trim() || 'AI Marketing';
+
+      try {
+        const res = await fetch('/api/v1/automate/send-test-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            toEmail,
+            subject: emailSubject,
+            bodyOutline,
+            businessName,
+          }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          feedback.classList.remove('hidden');
+          feedback.innerHTML = `✓ Dispatched test email to <strong>${toEmail}</strong> (Message ID: ${data.result.messageId})`;
+          showToast('Email Sent!', `Dispatched test email to ${toEmail}`);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'Send Test Email';
+      }
+    }
+
+    // Generate & Display Visual Ad Banners
+    async function generateAdBannersModal() {
+      const modal = document.getElementById('banners-modal');
+      const grid = document.getElementById('banners-grid-container');
+      modal.classList.remove('hidden');
+      grid.innerHTML = '<div class="col-span-3 text-center py-10 text-cyan-400 font-mono text-xs">Generating SVG Vector Ad Banners...</div>';
+
+      const brandName = window.currentPlan?.strategy?.campaignName?.split('-')[0]?.trim() || 'Enterprise SaaS';
+      const headline = window.currentPlan?.campaign?.adCopies?.metaAds?.headline || 'High-Impact Growth Acceleration';
+      const subheadline = window.currentPlan?.strategy?.coreValueProposition || 'Guaranteed Performance';
+      const ctaText = window.currentPlan?.campaign?.adCopies?.metaAds?.ctaButton || 'Get Started';
+      const features = (window.currentPlan?.campaign?.adCopies?.googleSearchAd?.headlines || []).slice(0, 4);
+
+      try {
+        const res = await fetch('/api/v1/automate/generate-banners', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            brandName,
+            headline,
+            subheadline,
+            ctaText,
+            features,
+          }),
+        });
+        const data = await res.json();
+        if (data.success && data.banners) {
+          grid.innerHTML = data.banners.map(b => `
+            <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-white text-xs">${b.aspectRatio} Banner</span>
+                <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono text-[10px]">${b.width}x${b.height}</span>
+              </div>
+              <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950 flex items-center justify-center p-2 max-h-[300px]">
+                ${b.svgContent}
+              </div>
+              <div class="text-[11px] text-slate-400 font-mono">
+                ${b.aspectRatio === '1:1' ? 'Instagram & Facebook Feed (1:1)' : (b.aspectRatio === '9:16' ? 'Instagram Stories & Reels (9:16)' : 'Google Display & Web (16:9)')}
+              </div>
+            </div>
+          `).join('');
+        }
+      } catch (err) {
+        grid.innerHTML = `<div class="col-span-3 text-rose-400 font-mono text-xs">Failed to render banners: ${err.message}</div>`;
+      }
+    }
+
+    // Export Plan Bundle
+    function downloadPlanBundle() {
+      if (!window.currentPlan) {
+        alert('Please create a marketing plan first.');
+        return;
+      }
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(window.currentPlan, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `marketing-automation-bundle-${Date.now()}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      showToast('Bundle Exported!', 'Marketing plan JSON bundle downloaded.');
+    }
+
+    // Dynamic Multi-Agent Execution
+    async function executeMarketingPlan() {
+      const input = document.getElementById('user-goal-input');
+      const prompt = input.value.trim();
+      if (!prompt) {
+        input.focus();
+        return;
+      }
+
+      const spinner = document.getElementById('btn-spinner');
+      const btnText = document.getElementById('btn-text');
+      const btn = document.getElementById('generate-plan-btn');
+      btn.disabled = true;
+      spinner.classList.remove('hidden');
+      btnText.innerText = 'Orchestrating Agents...';
+      document.getElementById('pipeline-pulsing-dot').className = "w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping";
+
+      updateStepUI(1, 'Connecting to Multi-Agent Pipeline...');
+
+      try {
+        let plan = null;
+        try {
+          // Attempt Real-time SSE streaming for live stepper visualization
+          plan = await new Promise((resolve, reject) => {
+            const url = `/api/v1/plans/stream?prompt=${encodeURIComponent(prompt)}`;
+            const evtSource = new EventSource(url);
+            const timeout = setTimeout(() => {
+              evtSource.close();
+              reject(new Error('SSE connection timed out, switching to direct HTTP'));
+            }, 90000);
+
+            evtSource.onmessage = (event) => {
+              try {
+                const data = JSON.parse(event.data);
+                if (data.step) {
+                  updateStepUI(data.step, `${data.name}: ${data.message}`);
+                }
+                if (data.complete && data.plan) {
+                  clearTimeout(timeout);
+                  evtSource.close();
+                  resolve(data.plan);
+                }
+                if (data.error) {
+                  clearTimeout(timeout);
+                  evtSource.close();
+                  reject(new Error(data.error));
+                }
+              } catch (e) {
+                console.error('Error parsing SSE event:', e);
+              }
+            };
+
+            evtSource.onerror = (err) => {
+              clearTimeout(timeout);
+              evtSource.close();
+              reject(new Error('SSE disconnected'));
+            };
+          });
+        } catch (sseErr) {
+          console.warn('SSE fallback to standard HTTP POST:', sseErr);
+          updateStepUI(2, 'Multi-Agent pipeline active...');
+          const res = await fetch('/api/v1/plans/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ prompt }),
+          });
+          const data = await res.json();
+          if (!res.ok || !data.plan) {
+            throw new Error(data.error || 'Marketing plan generation failed');
+          }
+          plan = data.plan;
+        }
+
+        if (plan) {
+          renderMarketingPlan(plan);
+          markAllStepsComplete();
+          showToast('Marketing Plan Generated!', `Successfully orchestrated multi-agent plan for "${prompt.slice(0, 32)}..."`);
+        }
+      } catch (err) {
+        console.error('Execution failed:', err);
+        const statusText = document.getElementById('pipeline-status-text');
+        if (statusText) statusText.innerText = 'Generation Error: ' + err.message;
+        alert('Plan generation error: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        spinner.classList.add('hidden');
+        btnText.innerText = 'Create Marketing Plan';
+        document.getElementById('pipeline-pulsing-dot').className = "w-2.5 h-2.5 rounded-full bg-emerald-400";
+      }
+    }
+
+    // Approvals Modal Logic
+    const modal = document.getElementById('approvals-modal');
+    document.getElementById('open-approvals-btn').addEventListener('click', () => {
+      modal.classList.remove('hidden');
+    });
+    function closeApprovalsModal() {
+      modal.classList.add('hidden');
+    }
+
+    async function reviewAction(action) {
+      try {
+        const res = await fetch('/api/v1/approvals');
+        const data = await res.json();
+        if (data.approvals && data.approvals.length > 0) {
+          const ticketId = data.approvals[0].id;
+          await fetch(`/api/v1/approvals/${ticketId}/review`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action, notes: 'Reviewed by Marketing Director' }),
+          });
+        }
+      } catch (e) {
+        console.error(e);
+      }
+      document.getElementById('approval-counter-badge').innerText = '0';
+      document.getElementById('approval-ticket-card').innerHTML = '<div class="text-center py-4 text-emerald-400 font-bold">✓ Actions Approved and Scheduled for Execution!</div>';
+      setTimeout(() => {
+        closeApprovalsModal();
+        if (action === 'APPROVE') {
+          deployFullCampaignAutomation();
+        }
+      }, 1000);
+    }
+
+    // Video Reel & Short Simulator Controller Functions
+    window.activeReelSceneIdx = 0;
+    window.reelPlayInterval = null;
+
+    function switchToReelSimulator() {
+      switchTab('content');
+      setTimeout(() => {
+        const studio = document.getElementById('video-reel-studio');
+        if (studio) studio.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    function seekReelScene(idx) {
+      if (!window.currentReelScenes || !window.currentReelScenes[idx]) return;
+      window.activeReelSceneIdx = idx;
+      const s = window.currentReelScenes[idx];
+      const total = window.currentReelScenes.length;
+
+      // Update phone screen
+      const timeBadge = document.getElementById('reel-screen-time');
+      if (timeBadge) timeBadge.innerText = `Scene ${idx + 1} / ${total}`;
+
+      const badge = document.getElementById('reel-screen-badge');
+      if (badge) {
+        badge.innerText = idx === 0 ? '⚡ 3-Second Hook' : idx === 1 ? '💡 Core Pain' : idx === 2 ? '📱 App Feature' : '🚀 Conversion CTA';
+      }
+
+      const overlay = document.getElementById('reel-screen-overlay');
+      if (overlay) overlay.innerText = `"${s.onScreenText || s.spokenScript}"`;
+
+      const promptEl = document.getElementById('reel-screen-visual-prompt');
+      if (promptEl) promptEl.innerText = `👁 Visual: ${s.visualPrompt}`;
+
+      const dialogue = document.getElementById('reel-dialogue-text');
+      if (dialogue) dialogue.innerText = `"${s.spokenScript}"`;
+
+      // Update progress ticks & scene cards
+      for (let i = 0; i < total; i++) {
+        const prog = document.getElementById(`reel-prog-${i}`);
+        if (prog) {
+          prog.className = i <= idx
+            ? 'h-1 rounded-full bg-cyan-400 transition-all duration-300'
+            : 'h-1 rounded-full bg-slate-700 transition-all duration-300';
+        }
+        const card = document.getElementById(`scene-card-${i}`);
+        if (card) {
+          card.className = i === idx
+            ? 'cursor-pointer p-4 rounded-2xl bg-slate-900 border-2 border-teal-400 shadow-lg transition space-y-2 group'
+            : 'cursor-pointer p-4 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 transition space-y-2 group';
+        }
+      }
+    }
+
+    function nextReelScene() {
+      if (!window.currentReelScenes) return;
+      const nextIdx = (window.activeReelSceneIdx + 1) % window.currentReelScenes.length;
+      seekReelScene(nextIdx);
+    }
+
+    function prevReelScene() {
+      if (!window.currentReelScenes) return;
+      const prevIdx = (window.activeReelSceneIdx - 1 + window.currentReelScenes.length) % window.currentReelScenes.length;
+      seekReelScene(prevIdx);
+    }
+
+    function playReelSimulation() {
+      if (window.reelPlayInterval) {
+        clearInterval(window.reelPlayInterval);
+        window.reelPlayInterval = null;
+        updatePlayButtons(false);
+        return;
+      }
+
+      updatePlayButtons(true);
+      showToast('Playing Reel Simulation', 'Stepping through 30s scenes with voiceover...');
+      
+      window.reelPlayInterval = setInterval(() => {
+        if (!window.currentReelScenes) return;
+        if (window.activeReelSceneIdx >= window.currentReelScenes.length - 1) {
+          seekReelScene(0);
+        } else {
+          nextReelScene();
+        }
+      }, 3500);
+    }
+
+    function updatePlayButtons(isPlaying) {
+      const topBtnText = document.getElementById('reel-play-text');
+      const topBtnIcon = document.getElementById('reel-play-icon');
+      const miniText = document.getElementById('mini-play-text');
+      const miniIcon = document.getElementById('mini-play-icon');
+      if (topBtnText) topBtnText.innerText = isPlaying ? 'Pause Simulation' : 'Play 30s Simulation';
+      if (topBtnIcon) topBtnIcon.innerText = isPlaying ? '⏸' : '▶';
+      if (miniText) miniText.innerText = isPlaying ? 'Pause' : 'Play';
+      if (miniIcon) miniIcon.innerText = isPlaying ? '⏸' : '▶';
+    }
+
+    function copyReelScript() {
+      if (!window.currentReelData || !window.currentReelScenes) return;
+      const text = [
+        `=== 30-SECOND REEL SCRIPT: ${window.currentReelData.title} ===`,
+        `HOOK: ${window.currentReelData.hookVisualAndAudio}`,
+        ...window.currentReelScenes.map(s => `\n[Scene ${s.sceneNumber}]\nVISUAL: ${s.visualPrompt}\nOVERLAY: ${s.onScreenText}\nVOICEOVER: "${s.spokenScript}"`),
+        `\nCTA: ${window.currentReelData.cta}`
+      ].join('\n');
+      navigator.clipboard.writeText(text);
+      showToast('Script Copied!', 'Complete voiceover script copied to clipboard.');
+    }
+
+    // Advanced Video AI Studio Modal Controller
+    const advVideoModal = document.getElementById('advanced-video-modal');
+    window.selectedVideoAngle = 'CONTRARIAN_MYTH';
+
+    function openAdvancedVideoModal() {
+      advVideoModal.classList.remove('hidden');
+    }
+
+    function closeAdvancedVideoModal() {
+      advVideoModal.classList.add('hidden');
+    }
+
+    function selectVideoAngle(angle) {
+      window.selectedVideoAngle = angle;
+      const anglePresets = {
+        CONTRARIAN_MYTH: 'Stop reading grammar books! The 10-minute micro speaking habit.',
+        JOB_INTERVIEW: 'How to answer "Tell me about yourself" in English with confidence & no stutter.',
+        OFFLINE_HACK: 'Mastering 3,000 words on the metro with 0 mobile data needed (Airplane Mode Test).',
+        STUDENT_COMEDY: 'Relatable student comedy: Freezing in English oral exams vs speaking easily.',
+      };
+      const promptInput = document.getElementById('adv-video-prompt');
+      if (promptInput) {
+        promptInput.value = anglePresets[angle] || '';
+      }
+      showToast('Angle Selected', `Preset set to: ${angle}`);
+    }
+
+    async function submitAdvancedVideoGeneration() {
+      const prompt = document.getElementById('adv-video-prompt').value.trim();
+      const platform = document.getElementById('adv-video-platform').value;
+      const durationSeconds = document.getElementById('adv-video-duration').value;
+      const style = document.getElementById('adv-video-style').value;
+
+      const btn = document.getElementById('adv-video-submit-btn');
+      const spinner = document.getElementById('adv-video-spinner');
+      const btnText = document.getElementById('adv-video-btn-text');
+
+      btn.disabled = true;
+      spinner.classList.remove('hidden');
+      btnText.innerText = 'Directing Video AI...';
+
+      try {
+        const res = await fetch('/api/v1/plans/generate-video', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prompt,
+            angle: window.selectedVideoAngle,
+            style,
+            durationSeconds: Number(durationSeconds),
+            targetPlatform: platform,
+            plan: window.currentPlan,
+          }),
+        });
+
+        const data = await res.json();
+        if (data.success && data.reel) {
+          if (window.currentPlan) {
+            window.currentPlan.content.shortFormVideoReel = data.reel;
+            savePlanLocally(window.currentPlan);
+          }
+          // Re-render plan with new reel
+          renderMarketingPlan(window.currentPlan || data.plan);
+          closeAdvancedVideoModal();
+          switchToReelSimulator();
+          showToast('New Video Script Ready!', 'Loaded into 9:16 Smartphone Simulator.');
+        } else {
+          showToast('Generation Notice', data.error || 'Failed to generate video');
+        }
+      } catch (err) {
+        console.error('Advanced video generation error:', err);
+        showToast('Error', 'Failed to generate video.');
+      } finally {
+        btn.disabled = false;
+        spinner.classList.add('hidden');
+        btnText.innerText = '🚀 Generate Video Script & Storyboard';
+      }
+    }
+
+    // Granular Per-Section Regeneration Controller
+    async function regenerateSection(section) {
+      const btnMap = {
+        reel: { btn: 'regen-reel-btn', icon: 'regen-reel-icon', label: 'Regenerating Video...' },
+        social: { btn: 'regen-social-btn', icon: 'regen-social-icon', label: 'Regenerating Posts...' },
+        ads: { btn: 'regen-ads-btn', icon: 'regen-ads-icon', label: 'Regenerating Ads...' },
+        emails: { btn: 'regen-emails-btn', icon: 'regen-emails-icon', label: 'Regenerating Emails...' },
+      };
+
+      const cfg = btnMap[section];
+      const btn = cfg ? document.getElementById(cfg.btn) : null;
+      const icon = cfg ? document.getElementById(cfg.icon) : null;
+
+      if (btn) btn.disabled = true;
+      if (icon) icon.className = 'inline-block animate-spin';
+
+      showToast('Regenerating Section', `Generating fresh ${section} content...`);
+
+      try {
+        const res = await fetch('/api/v1/plans/regenerate-section', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ section, plan: window.currentPlan }),
+        });
+
+        const data = await res.json();
+        if (data.success && data.plan) {
+          window.currentPlan = data.plan;
+          savePlanLocally(data.plan);
+          renderMarketingPlan(data.plan);
+          showToast('Section Updated!', `Fresh ${section} content generated & saved.`);
+        }
+      } catch (err) {
+        console.error('Section regeneration error:', err);
+        showToast('Regeneration Failed', 'Could not regenerate section.');
+      } finally {
+        if (btn) btn.disabled = false;
+        if (icon) icon.className = '';
+      }
+    }
+
+    // Local Storage Persistence Helper
+    function savePlanLocally(plan) {
+      try {
+        if (plan) {
+          localStorage.setItem('aetheria_saved_marketing_plan', JSON.stringify(plan));
+        }
+      } catch (e) {
+        console.warn('Failed to save to localStorage:', e);
+      }
+    }
+
+    // Bind Event Listeners
+    document.getElementById('generate-plan-btn').addEventListener('click', executeMarketingPlan);
+    document.getElementById('user-goal-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') executeMarketingPlan();
+    });
+
+    // Populate Initial Sample & Brand Settings on Page Load (Preserves Work on Refresh)
+    window.addEventListener('DOMContentLoaded', async () => {
+      try {
+        await loadSettings();
+      } catch (e) {
+        console.warn('Failed to load settings:', e);
+      }
+
+      // Step 1: Check localStorage first so work is never lost on refresh
+      let localPlanLoaded = false;
+      try {
+        const savedRaw = localStorage.getItem('aetheria_saved_marketing_plan');
+        if (savedRaw) {
+          const parsed = JSON.parse(savedRaw);
+          if (parsed && parsed.strategy && parsed.content) {
+            window.currentPlan = parsed;
+            renderMarketingPlan(parsed);
+            markAllStepsComplete();
+            localPlanLoaded = true;
+          }
+        }
+      } catch (err) {
+        console.warn('Local plan parse error:', err);
+      }
+
+      // Step 2: Fetch active server plan if no local plan exists
+      if (!localPlanLoaded) {
+        try {
+          const res = await fetch('/api/v1/plans/active');
+          const data = await res.json();
+          if (data.plan) {
+            window.currentPlan = data.plan;
+            renderMarketingPlan(data.plan);
+            markAllStepsComplete();
+            savePlanLocally(data.plan);
+          }
+        } catch (e) {
+          console.warn('Initial load skipped:', e);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

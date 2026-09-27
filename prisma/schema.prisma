@@ -1,0 +1,220 @@
+// Prisma Schema for Global Multi-Tenant AI Marketing Automation SaaS
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  extensions = [pgvector(map: "vector"), pg_trgm]
+}
+
+// -------------------------------------------------------------
+// Multi-Tenant Core Models
+// -------------------------------------------------------------
+
+enum SubscriptionTier {
+  STARTER
+  GROWTH
+  AGENCY
+  ENTERPRISE
+}
+
+enum ModelMode {
+  LOCAL_ONLY
+  COST_SAVER_HYBRID
+  MAX_PERFORMANCE
+}
+
+enum UserRole {
+  OWNER
+  ADMIN
+  MARKETER
+  CONTENT_CREATOR
+  VIEWER
+}
+
+enum TaskTier {
+  TIER_0_LOCAL_UTILITY
+  TIER_1_LOW_COST_CLOUD
+  TIER_2_FRONTIER_REASONING
+}
+
+enum ModelProviderType {
+  OLLAMA
+  OPENAI
+  ANTHROPIC
+  GEMINI
+  GROQ
+  DEEPSEEK
+}
+
+model Organization {
+  id               String           @id @default(uuid()) @db.Uuid
+  name             String           @db.VarChar(255)
+  slug             String           @unique @db.VarChar(100)
+  countryCode      String           @default("US") @db.VarChar(2)
+  currency         String           @default("USD") @db.VarChar(3)
+  timezone         String           @default("America/New_York") @db.VarChar(100)
+  defaultLanguage  String           @default("en-US") @db.VarChar(10)
+  subscriptionTier SubscriptionTier @default(GROWTH)
+  modelMode        ModelMode        @default(COST_SAVER_HYBRID)
+  compliance       Json             @default("{\"gdprCompliant\": true, \"ccpaCompliant\": true, \"canSpamCompliant\": true}")
+  channelsEnabled  Json             @default("{\"email\": true, \"sms\": true, \"whatsapp\": true, \"metaSocial\": true, \"linkedIn\": true, \"xSocial\": true, \"googleBusiness\": true}")
+
+  // Relations
+  users             User[]
+  businessProfile   BusinessProfile?
+  brandVoice        BrandVoice?
+  aiUsageLogs       AiUsageMeter[]
+  knowledgeDocs     KnowledgeDocument[]
+  documentChunks    DocumentChunk[]
+  marketingPlans    MarketingPlan[]
+
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  @@map("organizations")
+}
+
+model User {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @db.Uuid
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  email          String       @db.VarChar(255)
+  name           String       @db.VarChar(255)
+  role           UserRole     @default(MARKETER)
+  permissions    Json         @default("[]")
+
+  aiUsageLogs    AiUsageMeter[]
+
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([organizationId, email])
+  @@index([organizationId])
+  @@map("users")
+}
+
+model BusinessProfile {
+  id                  String       @id @default(uuid()) @db.Uuid
+  organizationId      String       @unique @db.Uuid
+  organization        Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  businessName        String       @db.VarChar(255)
+  industry            String       @db.VarChar(100)
+  websiteUrl          String?      @db.Text
+  city                String       @db.VarChar(100)
+  stateOrRegion       String       @db.VarChar(100)
+  country             String       @db.VarChar(100)
+  targetAudience      String       @db.Text
+  services            Json         @default("[]") // Array of { name, description, estimatedPrice }
+  uniqueSellingPoints Json         @default("[]") // Array of strings
+  competitors         Json         @default("[]") // Array of competitor URLs / names
+
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @updatedAt
+
+  @@map("business_profiles")
+}
+
+model BrandVoice {
+  id              String       @id @default(uuid()) @db.Uuid
+  organizationId  String       @unique @db.Uuid
+  organization    Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  tone            String       @default("PROFESSIONAL_EMPATHETIC") @db.VarChar(100)
+  styleGuidelines String       @db.Text
+  forbiddenWords  Json         @default("[]")
+  keyPhrases      Json         @default("[]")
+
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  @@map("brand_voices")
+}
+
+model AiUsageMeter {
+  id               String            @id @default(uuid()) @db.Uuid
+  organizationId   String            @db.Uuid
+  organization     Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  userId           String?           @db.Uuid
+  user             User?             @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  taskTier         TaskTier
+  provider         ModelProviderType
+  modelName        String            @db.VarChar(100)
+  promptTokens     Int               @default(0)
+  completionTokens Int               @default(0)
+  totalTokens      Int               @default(0)
+  estimatedCostUsd Decimal           @default(0.000000) @db.Decimal(10, 6)
+  latencyMs        Int               @default(0)
+  taskDescription  String?           @db.Text
+
+  createdAt        DateTime          @default(now())
+
+  @@index([organizationId])
+  @@map("ai_usage_meters")
+}
+
+// -------------------------------------------------------------
+// Knowledge Base & RAG Models (Milestone 2 Prep)
+// -------------------------------------------------------------
+
+model KnowledgeDocument {
+  id             String          @id @default(uuid()) @db.Uuid
+  organizationId String          @db.Uuid
+  organization   Organization    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  title          String          @db.VarChar(255)
+  sourceType     String          @db.VarChar(50) // WEBSITE | PDF | DOCX | FAQ | MANUAL
+  sourceUrl      String?         @db.Text
+
+  chunks         DocumentChunk[]
+
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  @@index([organizationId])
+  @@map("knowledge_documents")
+}
+
+model DocumentChunk {
+  id             String            @id @default(uuid()) @db.Uuid
+  organizationId String            @db.Uuid
+  organization   Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  documentId     String            @db.Uuid
+  document       KnowledgeDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  chunkIndex     Int
+  content        String            @db.Text
+  metadata       Json              @default("{}")
+  // 768 dimensions matches local nomic-embed-text
+  embedding      Unsupported("vector(768)")?
+
+  createdAt      DateTime          @default(now())
+
+  @@index([organizationId])
+  @@index([documentId])
+  @@map("document_chunks")
+}
+
+// -------------------------------------------------------------
+// Marketing Plans & Orchestration Models (Milestone 3 Prep)
+// -------------------------------------------------------------
+
+model MarketingPlan {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @db.Uuid
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  userPrompt     String       @db.Text
+  primaryGoal    String       @db.VarChar(255)
+  timeframeDays  Int          @default(30)
+  status         String       @default("DRAFT") // DRAFT | PENDING_APPROVAL | APPROVED | ACTIVE | COMPLETED
+  planJson       Json         // Full LangGraph structured output
+
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@index([organizationId])
+  @@map("marketing_plans")
+}

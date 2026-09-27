@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  # 1. Main SaaS Application & API
+  app:
+    build: .
+    container_name: aetheria_marketing_saas
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/ai_marketing_saas
+      - REDIS_URL=redis://redis:6379
+      - OLLAMA_BASE_URL=http://ollama:11434
+    depends_on:
+      - postgres
+      - redis
+      - ollama
+    restart: always
+
+  # 2. PostgreSQL 16 with pgvector extension
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: aetheria_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ai_marketing_saas
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  # 3. Redis for Worker Queues and Caching
+  redis:
+    image: redis:7-alpine
+    container_name: aetheria_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: always
+
+  # 4. Local Ollama Model Runtime (Zero-Cost Local LLM & Vector Embeddings)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: aetheria_ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    restart: always
+
+volumes:
+  postgres_data:
+  redis_data:
+  ollama_models:

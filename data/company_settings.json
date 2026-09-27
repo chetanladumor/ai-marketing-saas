@@ -1,0 +1,75 @@
+{
+  "brandProfile": {
+    "companyName": "Engligenious",
+    "productType": "Android Mobile App / EdTech",
+    "industry": "Spoken English & Micro-Learning",
+    "websiteUrl": "https://engligenius-ai-master.web.app/",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.techcare.engligenius&hl=en_IN",
+    "targetAudience": "Non-native English speakers, job seekers, and college students seeking fluency",
+    "primaryLocation": "Global (India, LATAM, Southeast Asia, Middle East)",
+    "valueProposition": "Master spoken English in 10 minutes a day with AI pronunciation feedback, 3,000+ words, and 100% offline practice mode.",
+    "keyFeatures": [
+      "Elevate Your Career & Social Life with EngliGenius AI – The Definitive English Coach for Professionals.  Whether you are starting from zero or looking to polish your fluency",
+      "EngliGenius AI is an advanced learning ecosystem built specifically for adults who need to master English for Career",
+      "Travel",
+      "Finance",
+      "and International Networking.  🚀 START FROM SCRATCH: A PROVEN 365-DAY PLAN No more random lessons. We provide a structured",
+      "step-by-step roadmap designed to take you from a complete beginner to a confident speaker in one year:  Immediate Access: No login or account required. Start your first lesson the second you open the app  Progressive Learning: Start with the basics and advance through complex professional scenarios.  365-Day Curriculum: A dedicated module for every single day of the year to ensure consistent habit-building.  Mastery at Your Own Pace: Move through our structured levels as you gain confidence and skill.  🤖 YOUR 24/7 PERSONAL AI TUTOR Experience the power of a live conversation partner without the pressure. Our AI Tutor is designed for mature learners:  Direct & Intelligent: Engage in sophisticated",
+      "natural conversations. Practice high-level discussions and receive professional explanations.  Live Feedback: Receive instant grammar and pronunciation corrections as if you were working with a high-end private coach.  Adaptive Learning: The conversation levels up as you do—moving from foundational English to Executive-level fluency.  💼 SPECIALIZED PROFESSIONAL PATHWAYS Master the specific language of your industry with dedicated modules:  Tech & IT Professionals: Practice Project Stand-ups",
+      "Technical Support",
+      "and Remote Work Coordination.  Hospitality & Tourism: Learn the nuances of Professional Customer Support and Global Travel Logistics.  Corporate & Finance: Ace your Job Interviews",
+      "Networking Events",
+      "and Business Time Management.  Healthcare & Wellness: Communicate with precision during consultations and professional discussions.  📈 PERFORMANCE-DRIVEN ENGAGEMENT EngliGenius AI uses a high-performance system designed to keep busy adults on track:  Daily Milestone Quests: Complete specific learning objectives to optimize your daily efficiency.  Consistency Streaks: Build a professional habit and track your progress across 365 days of progressive learning.  Track Growth: Earn badges for hitting major fluency milestones.  Executive Levels: Advance from \"Beginner\" to \"Legendary\" with daily practice.  🏠 REAL LIFE MASTERED (365+ SCENARIOS) We cover the complexities of adult life across a structured",
+      "one-year curriculum:  Home & Lifestyle: Apartment hunting",
+      "contracts",
+      "and managing house rules.  Social & Leisure: Participate in networking mixers",
+      "book clubs",
+      "and international social events.  Success-Oriented Grammar: Deep-dive into the syntax and advanced rules that matter in professional writing and speaking.  🚀 PREMIUM FEATURES FOR SERIOUS LEARNERS Offline Functionality: No internet? No problem. Continue your 365-day plan anytime",
+      "anywhere.  100% Professional Content: A sophisticated learning environment focused on step-by-step mastery and professional growth.  Smart Review System: Uses Spaced Repetition (SRS) to ensure you never forget critical industry-specific terms.  High-Fidelity Audio: Natural AI voices to help you perfect a clear",
+      "professional accent.  Progress Analytics: Identify your weak points and focus your study time where it counts most for your career.  Dark Mode: Optimized for high-performance learning at any time of day.  Target Your Goals: ✅ Career Growth: Lead meetings and negotiations with confidence. ✅ Global Travel: Navigate any city",
+      "airport",
+      "or hotel with ease. ✅ Social Confidence: Connect with professionals and peers worldwide. ✅ Exam Foundation: Build the accuracy needed for professional certifications.  Don’t let language barriers hold back your potential. Take control of your future and achieve total fluency. Download EngliGenius AI today!"
+    ],
+    "brandTone": "Inspirational, Friendly & Action-Oriented"
+  },
+  "integrations": {
+    "mode": "SANDBOX",
+    "linkedin": {
+      "enabled": true,
+      "accessToken": "li_at_sandbox_demo_token",
+      "organizationUrn": "urn:li:organization:91823746",
+      "status": "CONNECTED"
+    },
+    "meta": {
+      "enabled": true,
+      "pageAccessToken": "eaab_sandbox_meta_graph_token",
+      "instagramAccountId": "17841400000000001",
+      "status": "CONNECTED"
+    },
+    "email": {
+      "enabled": true,
+      "provider": "RESEND",
+      "apiKey": "re_sandbox_test_key_84920",
+      "fromEmail": "growth@engligenious.app",
+      "fromName": "Engligenious Onboarding Team",
+      "status": "CONNECTED"
+    },
+    "googleAds": {
+      "enabled": false,
+      "customerId": "849-204-1920",
+      "conversionId": "AW-94819204",
+      "status": "DISCONNECTED"
+    },
+    "playStore": {
+      "enabled": true,
+      "packageName": "com.engligenious.app",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.engligenious.app",
+      "status": "CONNECTED"
+    },
+    "webhook": {
+      "enabled": false,
+      "webhookUrl": "https://hooks.zapier.com/hooks/catch/sample/marketing/",
+      "status": "DISCONNECTED"
+    }
+  }
+}
